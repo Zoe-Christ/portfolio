@@ -1,4 +1,6 @@
 public class Hauptklasse {
-    import
+    public static void main (String[] args){
+
+    }
 }
 
