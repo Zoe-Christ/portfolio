@@ -15,7 +15,7 @@ public class teil implements Serializable {
     }
 
     @Id
-    @Column(name = "teilID")
+    @Column(name = "teilID", nullable = false)
     public Integer getTeilID() {
         return teilID;
     }
