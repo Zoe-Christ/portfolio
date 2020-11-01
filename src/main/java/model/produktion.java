@@ -16,8 +16,9 @@ public class produktion implements Serializable{
     @Column(name = "ProduktionID", nullable = false)
     protected Integer ProduktionID;
 
-    @Column(name = "Anz-Produktionsplaetze", nullable = false)
-    protected Integer Anz-Produktionsplaetze;
+    //Spaltenname ändern in Tabelle
+    @Column(name = "Anz_Produktionsplaetze", nullable = false)
+    protected Integer Anz_Produktionsplaetze;
 
     @Column(name = "Kapazitaet", nullable = false)
     protected Long Kapazitaet;

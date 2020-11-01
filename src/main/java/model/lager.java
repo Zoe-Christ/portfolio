@@ -26,7 +26,7 @@ public class lager implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "adresse_AdressID", nullable = false)
-    protected adresse Adresse;
+    protected Adresse adresse;
 
     @OneToMany(mappedBy="lager")
     private Set<teil> T;
