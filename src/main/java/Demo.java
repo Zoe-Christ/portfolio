@@ -2,9 +2,9 @@ import java.sql.*;
 
 public class Demo {
 
-    private static String LOGIN = "dhbw";
-    private static String PASSWORD = "dhbw";
-    private static String URL = "jdbc:mysql://localhost:3306/world";
+    private static String LOGIN = "root";
+    private static String PASSWORD = "root";
+    private static String URL = "jdbc:mysql://localhost:3306/portfolio";
     private static String TIMEZONEPROPERTY = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
     public static void main( String[] args ) {

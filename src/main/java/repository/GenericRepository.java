@@ -1,6 +1,6 @@
 package repository;
 
-import dhbw.datenbanken.ormexample.connection.ConnectionHelper;
+import connection.ConnectionHelper;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

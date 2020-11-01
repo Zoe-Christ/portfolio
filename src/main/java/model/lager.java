@@ -29,7 +29,7 @@ public class lager implements Serializable{
     protected Adresse Adresse;
 
     @OneToMany(mappedBy="lager")
-    private Set<teil> T;
+    private Set Teil;
 
     @OneToMany(mappedBy="lager")
     private Set P;

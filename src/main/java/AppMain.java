@@ -30,20 +30,10 @@ public class AppMain {
             sessionObj = buildSessionFactory().openSession();
             sessionObj.beginTransaction();
 
-            lager Lager = new lager("4", "5000",  "4800", "Kleinlager", 1,);
-            sessionObj.save(lager);
+           // lager Lager = new lager("4", "5000",  "4800", "Kleinlager", 1);
+            //sessionObj.save(lager);
 
-            MarksDetails marksObj1 = new MarksDetails("English", "100", "90",  "Pass");
-            marksObj1.setStudent(studentObj);
-            sessionObj.save(marksObj1);
 
-            MarksDetails marksObj2 = new MarksDetails("Maths", "100", "99",  "Pass");
-            marksObj2.setStudent(studentObj);
-            sessionObj.save(marksObj2);
-
-            MarksDetails marksObj3 = new MarksDetails("Science", "100", "94",  "Pass");
-            marksObj3.setStudent(studentObj);
-            sessionObj.save(marksObj3);
 
             // Committing The Transactions To The Database
             sessionObj.getTransaction().commit();

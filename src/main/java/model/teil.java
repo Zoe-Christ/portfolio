@@ -1,13 +1,23 @@
 package model;
 
-import org.hibernate.annotations.Entity;
 
+import org.hibernate.mapping.Set;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+
 @Entity
+@Table(name = "teil")
+
 public class teil implements Serializable {
+    @ManyToOne()
+    @JoinColumn(name= "lager_LagerID", nullable = false)
+    protected lager lager;
+
     private Integer teilID;
 
     public void setTeilID(Integer teilID) {

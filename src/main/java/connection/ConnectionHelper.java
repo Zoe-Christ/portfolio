@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 public class ConnectionHelper {
 
-    private static String LOGIN = "dhbw";
-    private static String PASSWORD = "dhbw";
+    private static String LOGIN = "root";
+    private static String PASSWORD = "root";
     private static String URL = "jdbc:mysql://localhost:3306/";
-    private static String DEFAULTSCHEMA = "world";
+    private static String DEFAULTSCHEMA = "portfolio";
     private static String TIMEZONEPROPERTY = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
     private ConnectionHelper() throws IllegalAccessException {
@@ -20,7 +20,7 @@ public class ConnectionHelper {
     public static Connection getConnection( String schema ) {
         Connection con = null;
         try {
-            if ( schema == null || schema.isBlank() ) {
+            if ( schema == null ) {
                 con = DriverManager.getConnection( URL + DEFAULTSCHEMA + TIMEZONEPROPERTY, LOGIN, PASSWORD );
             } else {
                 con = DriverManager.getConnection( URL + schema + TIMEZONEPROPERTY, LOGIN, PASSWORD );
