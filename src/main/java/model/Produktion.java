@@ -1,14 +1,8 @@
 package model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 
@@ -21,7 +15,7 @@ public class Produktion implements Serializable{
     protected Integer ProduktionID;
 
     @Column(name = "Anz-Produktionsplaetze", nullable = false)
-    protected Integer Anz\-Produktionsplaetze;
+    protected Integer Anz-Produktionsplaetze;
 
     @Column(name = "Kapazitaet", nullable = false)
     protected Long Kapazitaet;
@@ -31,6 +25,25 @@ public class Produktion implements Serializable{
 
     @Column(name = "Prod_Kosten", nullable = false)
     protected Long Prod_Kosten;
+
+    @ManyToOne
+    @JoinColumn(name = "lager_LagerID", nullable = false)
+    protected lager Lager;
+
+    @ManyToOne
+    @JoinColumn(name = "qm_QMID1", nullable = false)
+    protected qm QM;
+
+    @ManyToOne
+    @JoinColumn(name = "qm_abteilung_Kuerzel", nullable = false)
+    protected qm QM;
+
+    @OneToMany(mappedBy="Zeit")
+    private Set<maschine> zeit;
+
+
+
+
 
     
 
