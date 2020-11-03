@@ -1,10 +1,7 @@
 package model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -19,11 +16,9 @@ public class Adresse implements Serializable {
     @Column(name = "Hausnummer")
     public String Hausnummer;
 
-    @Column(name = "PLZ")
-    public Integer PLZ;
-
-    @Column(name = "Stadt")
-    public String Stadt;
+    @OneToOne
+    @JoinColumn(name = "plz_PLZ")
+    private Plz plz;
 
     public Adresse() {
     }
@@ -53,19 +48,4 @@ public class Adresse implements Serializable {
         Hausnummer = hausnummer;
     }
 
-    public Integer getPLZ() {
-        return PLZ;
-    }
-
-    public void setPLZ(Integer PLZ) {
-        this.PLZ = PLZ;
-    }
-
-    public String getStadt() {
-        return Stadt;
-    }
-
-    public void setStadt(String stadt) {
-        Stadt = stadt;
-    }
 }

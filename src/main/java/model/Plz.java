@@ -1,10 +1,7 @@
 package model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -35,5 +32,16 @@ public class Plz implements Serializable {
 
     public void setStadt(String stadt) {
         Stadt = stadt;
+    }
+
+    @OneToOne(mappedBy = "PLZ")
+    private Plz plz;
+
+    public Plz getPlz() {
+        return plz;
+    }
+
+    public void setPlz(Plz plz) {
+        this.plz = plz;
     }
 }
