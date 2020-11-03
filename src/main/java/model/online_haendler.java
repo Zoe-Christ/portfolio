@@ -5,8 +5,6 @@ import org.hibernate.mapping.Set;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "online_haendler")
@@ -28,8 +26,8 @@ public class online_haendler implements Serializable{
     @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
     protected vertrag Vertrag;
 
-    @OneToMany(mappedBy="online_haendler")
-    private Set<kundenauftrag> K;
+    @OneToMany(mappedBy = "online_haendler")
+    private Set<Kundenauftrag> K;
 
     @OneToMany(mappedBy="online_haendler")
     private Set<online_haendler_has_product> P;
@@ -74,11 +72,11 @@ public class online_haendler implements Serializable{
         Vertrag = vertrag;
     }
 
-    public Set<kundenauftrag> getK() {
+    public Set<Kundenauftrag> getK() {
         return K;
     }
 
-    public void setK(Set<kundenauftrag> k) {
+    public void setK(Set<Kundenauftrag> k) {
         K = k;
     }
 

@@ -1,13 +1,13 @@
 package model;
 
-import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Table;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import org.hibernate.mapping.Set;
+
+import javax.persistence.*;
 import java.io.Serializable;
+
 @Entity
-@Table(appliesTo = "abteilung")
+@Table(name = "Abteilung")
 public class Abteilung implements Serializable {
         @Id
         @Column(name ="Kuerzel", nullable = false)
@@ -24,6 +24,9 @@ public class Abteilung implements Serializable {
 
         @Column(name = "Kostenstelle")
         public Integer Kostenstelle;
+
+        @OneToMany(mappedBy = "abteilung")
+        private Set mitarbeiter;
 
         public Integer getKuerzel() {
                 return Kuerzel;

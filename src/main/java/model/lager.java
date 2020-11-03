@@ -4,11 +4,10 @@ import org.hibernate.mapping.Set;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Objects;
+
 
 @Entity
-@Table(name = "lager")
+@Table(name = "Lager")
 public class lager implements Serializable{
 
     @Id
@@ -34,8 +33,8 @@ public class lager implements Serializable{
     @OneToMany(mappedBy="lager")
     private Set P;
 
-    @OneToMany(mappedBy="lager")
-    private Set<lieferung> L;
+    @OneToMany(mappedBy = "lager")
+    private Set Lieferung;
 
     public Set<teil> getT() {
         return T;

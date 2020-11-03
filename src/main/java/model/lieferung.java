@@ -1,15 +1,11 @@
 package model;
 
-import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Table;
-import org.hibernate.type.DateType;
-import org.hibernate.type.DoubleType;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(appliesTo = "model.lieferung")
+@Table(name = "Lieferung")
 public class lieferung implements Serializable {
     @Id
     @Column(name ="LieferungID", nullable = false)

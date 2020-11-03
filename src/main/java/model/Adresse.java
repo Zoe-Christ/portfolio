@@ -1,14 +1,14 @@
 package model;
 
-import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Table;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(appliesTo = "model.Adresse")
+@Table(name = "Adresse")
 public class Adresse implements Serializable {
     @Id
     @Column(name ="AdressID", nullable = false)

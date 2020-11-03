@@ -1,11 +1,11 @@
 package repository;
 
-import model.kundenauftrag;
+import model.Kundenauftrag;
 
-public class kundenauftragRepository extends GenericRepository<kundenauftrag, Long> {
+public class kundenauftragRepository extends GenericRepository<Kundenauftrag, Long> {
 
     public kundenauftragRepository() {
-        super( kundenauftrag.class );
+        super(Kundenauftrag.class);
     }
 
 }

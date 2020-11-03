@@ -1,24 +1,22 @@
 package model;
 
-import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Table;
-import org.hibernate.type.DateType;
-import org.hibernate.type.DoubleType;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
-@Table(appliesTo = "model.kundenauftrag")
-public class kundenauftrag implements Serializable {
+@Table(name = "Kundenauftrag")
+public class Kundenauftrag implements Serializable {
     @Id
-    @Column(name ="AuftragID", nullable = false)
+    @Column(name = "AuftragID", nullable = false)
     protected Integer AuftragID;
 
-    @Column(name="Datum")
+    @Column(name = "Datum")
     public Date Datum;
 
-    @Column(name="Gewicht")
+    @Column(name = "Gewicht")
     public Double Gewicht;
 
     @Column(name = "Warenwert")
@@ -35,16 +33,17 @@ public class kundenauftrag implements Serializable {
     protected zahlung Zahlung;
 
     @ManyToOne
-    @JoinColumn(name = "kunde_KundID", nullable = false)
-    protected kunde kunde;
+    @JoinColumn(name = "kunde_KundeID", nullable = false)
+    protected Kunde kunde;
 
 
     @ManyToOne
     @JoinColumn(name = "lieferdienst_ID", nullable = false)
-    protected lieferdienst lieferdienst;
+    protected Lieferdienst lieferdienst;
 
 
-    public kundenauftrag(){ }
+    public Kundenauftrag() {
+    }
 
 
     public Integer getAuftragID() {
@@ -59,7 +58,7 @@ public class kundenauftrag implements Serializable {
         return Datum;
     }
 
-    public void setDatum(String datum) {
+    public void setDatum(Date datum) {
         Datum = datum;
     }
 

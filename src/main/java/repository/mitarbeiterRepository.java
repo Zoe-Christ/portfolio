@@ -1,11 +1,11 @@
 package repository;
 
-import model.mitarbeiter;
+import model.Mitarbeiter;
 
-public class mitarbeiterRepository extends GenericRepository<mitarbeiter, Long> {
+public class mitarbeiterRepository extends GenericRepository<Mitarbeiter, Long> {
 
     public mitarbeiterRepository() {
-        super(mitarbeiter.class );
+        super(Mitarbeiter.class);
     }
 
 }

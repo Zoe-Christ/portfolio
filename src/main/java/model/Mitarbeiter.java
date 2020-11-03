@@ -11,15 +11,15 @@ import java.io.Serializable;
 
 @Entity
 @Table(appliesTo = "model.mitarbeiter")
-public class mitarbeiter implements Serializable {
+public class Mitarbeiter implements Serializable {
     @Id
-    @Column(name ="MitarbeitereID", nullable = false)
+    @Column(name = "MitarbeiterID", nullable = false)
     protected Integer MitarbeiterID;
 
-    @Column(name="Vorname")
+    @Column(name = "Vorname")
     public String Vorname;
 
-    @Column(name="Nachname")
+    @Column(name = "Nachname")
     public String Nachname;
 
     @Column(name = "Mail")
@@ -45,11 +45,13 @@ public class mitarbeiter implements Serializable {
     protected Abteilung abteilung;
 
 
-    public kunde(){ }
+    public Mitarbeiter() {
+    }
 
 
     public Integer getMitarbeiterID() {
         return MitarbeiterID;
+    }
 
     public void setMitarbeiterID(Integer mitarbeiterID) {
         MitarbeiterID = mitarbeiterID;
@@ -80,11 +82,11 @@ public class mitarbeiter implements Serializable {
     }
 
     public Double getGehalt() {
-            return Gehalt;
+        return Gehalt;
     }
 
     public void setGehalt(Double gehalt) {
-            Gehalt = gehalt;
+        Gehalt = gehalt;
     }
 
     public Integer getTel() {
@@ -93,6 +95,30 @@ public class mitarbeiter implements Serializable {
 
     public void setTel(Integer tel) {
         Tel = tel;
+    }
+
+    public model.filiale getFiliale() {
+        return filiale;
+    }
+
+    public void setFiliale(model.filiale filiale) {
+        this.filiale = filiale;
+    }
+
+    public model.Adresse getAdresse() {
+        return Adresse;
+    }
+
+    public void setAdresse(model.Adresse adresse) {
+        Adresse = adresse;
+    }
+
+    public Abteilung getAbteilung() {
+        return abteilung;
+    }
+
+    public void setAbteilung(Abteilung abteilung) {
+        this.abteilung = abteilung;
     }
 }
 

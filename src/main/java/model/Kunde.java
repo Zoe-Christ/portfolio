@@ -1,22 +1,22 @@
 package model;
 
 import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Table;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(appliesTo = "model.kunde")
-public class kunde implements Serializable {
+@Table(name = "Kunde")
+public class Kunde implements Serializable {
     @Id
-    @Column(name ="KundeID", nullable = false)
+    @Column(name = "KundeID", nullable = false)
     protected Integer KundeID;
-    @Column(name="Vorname")
+    @Column(name = "Vorname")
     public String Vorname;
 
-    @Column(name="Nachname")
+    @Column(name = "Nachname")
     public String Nachname;
 
     @Column(name = "Mail")
@@ -26,11 +26,12 @@ public class kunde implements Serializable {
     public Integer Tel;
 
 
-    public kunde(){ }
+    public Kunde() {
+    }
 
 
     public Integer getkundeID() {
-        return kundeID;
+        return KundeID;
     }
 
     public void setkundeID(Integer kundeID) {
