@@ -1,21 +1,24 @@
 package model;
 
-import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Table;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
 
 @Entity
-@Table(appliesTo = "qm")
-public class qm {
+@Table(name = "qm")
+public class qm implements Serializable {
     public void setQMID(Integer qmid) {
         this.QMID = qmid;
     }
 
     @Id
-    @Column(name ="QMID", nullable = false)
+    @Column(name = "QMID", nullable = false)
     private Integer QMID;
+
     public Integer getQMID() {
         return QMID;
     }
