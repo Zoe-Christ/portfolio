@@ -36,13 +36,6 @@ public class Lager implements Serializable {
     @OneToMany(mappedBy = "Lager")
     private Set Lieferung;
 
-    public Set<teil> getTeil() {
-        return Teil;
-    }
-
-    public void setT(Set<teil> t) {
-        Teil = t;
-    }
 
     public Set getLager() {
         return Lager;

@@ -1,15 +1,12 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Produkt")
 public class Produkt implements Serializable {
-
 
     @Id
     @Column(name = "ProduktNr", nullable = false)
@@ -82,4 +79,12 @@ public class Produkt implements Serializable {
     public void setBestand(Integer bestand) {
         this.bestand = bestand;
     }
+
+    @OneToMany(mappedBy = "ProduktNr")
+    private List<Teil> teilList;
+
+    public Produkt() {
+
+    }
+
 }

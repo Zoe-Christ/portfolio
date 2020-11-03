@@ -6,35 +6,39 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name = "teil")
-
-public class teil implements Serializable {
+@Table(name = "Teil")
+public class Teil implements Serializable {
     @ManyToOne()
     @JoinColumn(name = "lager_LagerID", nullable = false)
     protected Lager lager;
 
+    @ManyToOne()
+    @JoinColumn(name = "produkt_ProduktNR")
+    private Produkt produkt;
+
+    @Id
+    @Column(name = "TeilID", nullable = false)
     private Integer teilID;
+
+    @Column(name = "Name")
+    public String Name;
+
+    @Column(name = "Funktion")
+    public String Funktion;
+
+    @Column(name = "Material")
+    public String Material;
+
+    @Column(name = "Preis")
+    public Double Preis;
+
+    public Integer getTeilID() {
+        return teilID;
+    }
 
     public void setTeilID(Integer teilID) {
         this.teilID = teilID;
     }
-
-    @Id
-    @Column(name = "teilID", nullable = false)
-    public Integer getTeilID() {
-        return teilID;
-    }
-    @Column(name="Name")
-    public String Name;
-
-    @Column(name="Funktion")
-    public String Funktion;
-
-    @Column(name="Material")
-    public String Material;
-
-    @Column(name="Preis")
-    public Double Preis;
 
     public String getName() {
         return Name;

@@ -42,8 +42,8 @@ public class Zulieferer implements Serializable {
     @OneToMany(mappedBy = "zulieferer")
     private Set<Bestellung> B;
 
-    @OneToMany(mappedBy="zulieferer")
-    private Set<teil> T;
+    @OneToMany(mappedBy = "zulieferer")
+    private Set<Teil> T;
 
     public Integer getZuliefererID() {
         return ZuliefererID;
@@ -125,11 +125,11 @@ public class Zulieferer implements Serializable {
         B = b;
     }
 
-    public Set<teil> getT() {
+    public Set<Teil> getT() {
         return T;
     }
 
-    public void setT(Set<teil> t) {
+    public void setT(Set<Teil> t) {
         T = t;
     }
 
