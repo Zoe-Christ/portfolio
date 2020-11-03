@@ -5,6 +5,8 @@ import org.hibernate.annotations.Table;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Entity
@@ -13,6 +15,7 @@ public class mitarbeiter implements Serializable {
     @Id
     @Column(name ="MitarbeitereID", nullable = false)
     protected Integer MitarbeiterID;
+
     @Column(name="Vorname")
     public String Vorname;
 
@@ -22,19 +25,34 @@ public class mitarbeiter implements Serializable {
     @Column(name = "Mail")
     public String Mail;
 
+    @Column(name = "Gehalt")
+    public Double Gehalt;
+
     @Column(name = "Tel")
     public Integer Tel;
+
+
+    @ManyToOne
+    @JoinColumn(name = "filiale_FilialeID", nullable = false)
+    protected filiale filiale;
+
+    @ManyToOne
+    @JoinColumn(name = "filiale_adresse_AdressID", nullable = false)
+    protected Adresse Adresse;
+
+    @ManyToOne
+    @JoinColumn(name = "abteilung_Kuerzel1", nullable = false)
+    protected Abteilung abteilung;
 
 
     public kunde(){ }
 
 
-    public Integer getkundeID() {
-        return kundeID;
-    }
+    public Integer getMitarbeiterID() {
+        return MitarbeiterID;
 
-    public void setkundeID(Integer kundeID) {
-        KundeID = kundeID;
+    public void setMitarbeiterID(Integer mitarbeiterID) {
+        MitarbeiterID = mitarbeiterID;
     }
 
     public String getVorname() {
@@ -59,6 +77,14 @@ public class mitarbeiter implements Serializable {
 
     public void setMail(String mail) {
         Mail = mail;
+    }
+
+    public Double getGehalt() {
+            return Gehalt;
+    }
+
+    public void setGehalt(Double gehalt) {
+            Gehalt = gehalt;
     }
 
     public Integer getTel() {

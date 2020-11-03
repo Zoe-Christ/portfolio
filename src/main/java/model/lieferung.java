@@ -53,7 +53,7 @@ public class lieferung implements Serializable {
     public lieferung(){ }
 
 
-    public Integer getLieferungIDID() {
+    public Integer getLieferungID() {
         return LieferungID;
     }
 
