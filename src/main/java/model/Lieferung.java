@@ -26,7 +26,7 @@ public class Lieferung implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "lager_Adresse_AdressID", nullable = false)
-    protected Adresse Adresse;
+    protected Adresse Lager_Adresse;
 
     @ManyToOne
     @JoinColumn(name = "spediteur_SpediteurID", nullable = false)
@@ -38,7 +38,7 @@ public class Lieferung implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "filiale_adresse_AdressID", nullable = false)
-    protected Adresse Adresse;
+    protected Adresse Filiale_adresse;
 
     @ManyToOne
     @JoinColumn(name = "fahrzeug_Fahrzeug_ID", nullable = false)
@@ -57,7 +57,6 @@ public class Lieferung implements Serializable {
         LieferungID = lieferungID;
     }
 
-
     public String getAbfahrt() {
         return Abfahrt;
     }
@@ -66,12 +65,11 @@ public class Lieferung implements Serializable {
         Abfahrt = abfahrt;
     }
 
-
-    public String getLiefertermin() {
+    public Double getLiefertermin() {
         return Liefertermin;
     }
 
-    public void setLiefertermin(String liefertermin) {
+    public void setLiefertermin(Double liefertermin) {
         Liefertermin = liefertermin;
     }
 
@@ -83,6 +81,53 @@ public class Lieferung implements Serializable {
         Gewicht = gewicht;
     }
 
+    public Lager getLager() {
+        return lager;
+    }
+
+    public void setLager(Lager lager) {
+        this.lager = lager;
+    }
+
+    public Adresse getLager_Adresse() {
+        return Lager_Adresse;
+    }
+
+    public void setLager_Adresse(Adresse lager_Adresse) {
+        Lager_Adresse = lager_Adresse;
+    }
+
+    public Spediteur getSpediteur() {
+        return spediteur;
+    }
+
+    public void setSpediteur(Spediteur spediteur) {
+        this.spediteur = spediteur;
+    }
+
+    public Filiale getFiliale() {
+        return filiale;
+    }
+
+    public void setFiliale(Filiale filiale) {
+        this.filiale = filiale;
+    }
+
+    public Adresse getFiliale_adresse() {
+        return Filiale_adresse;
+    }
+
+    public void setFiliale_adresse(Adresse filiale_adresse) {
+        Filiale_adresse = filiale_adresse;
+    }
+
+    public Fahrzeug getFahrzeug() {
+        return fahrzeug;
+    }
+
+    public void setFahrzeug(Fahrzeug fahrzeug) {
+        this.fahrzeug = fahrzeug;
+    }
 }
 
 

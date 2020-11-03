@@ -3,10 +3,11 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
-@Table(name = "zulieferer")
-public class zulieferer implements Serializable{
+@Table(name = "Zulieferer")
+public class Zulieferer implements Serializable {
 
     @Id
     @Column(name = "ZuliefererID", nullable = false)
@@ -38,8 +39,8 @@ public class zulieferer implements Serializable{
     @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
     protected vertrag V;
 
-    @OneToMany(mappedBy="zulieferer")
-    private Set<bestellung> B;
+    @OneToMany(mappedBy = "zulieferer")
+    private Set<Bestellung> B;
 
     @OneToMany(mappedBy="zulieferer")
     private Set<teil> T;
@@ -116,11 +117,11 @@ public class zulieferer implements Serializable{
         V = v;
     }
 
-    public Set<bestellung> getB() {
+    public Set<Bestellung> getB() {
         return B;
     }
 
-    public void setB(Set<bestellung> b) {
+    public void setB(Set<Bestellung> b) {
         B = b;
     }
 

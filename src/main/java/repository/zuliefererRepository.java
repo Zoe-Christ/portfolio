@@ -1,11 +1,11 @@
 package repository;
 
-import model.zulieferer;
+import model.Zulieferer;
 
-public class zuliefererRepository extends GenericRepository<zulieferer, Long> {
+public class zuliefererRepository extends GenericRepository<Zulieferer, Long> {
 
     public zuliefererRepository() {
-        super( zulieferer.class );
+        super(Zulieferer.class);
     }
 
 }

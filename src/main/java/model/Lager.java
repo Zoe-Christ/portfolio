@@ -31,12 +31,12 @@ public class Lager implements Serializable {
     private Set Teil;
 
     @OneToMany(mappedBy = "Lager")
-    private Set P;
+    private Set Lager;
 
     @OneToMany(mappedBy = "Lager")
     private Set Lieferung;
 
-    public Set<teil> getT() {
+    public Set<teil> getTeil() {
         return Teil;
     }
 
@@ -44,12 +44,12 @@ public class Lager implements Serializable {
         Teil = t;
     }
 
-    public Set getP() {
-        return P;
+    public Set getLager() {
+        return Lager;
     }
 
-    public void setP(Set p) {
-        P = p;
+    public void setLager(Set lager) {
+        Lager = lager;
     }
 
     public Set<Lieferung> getL() {
@@ -99,6 +99,5 @@ public class Lager implements Serializable {
     public void setAdresse(Adresse Adresse) {
         Adresse = Adresse;
     }
-
 
 }

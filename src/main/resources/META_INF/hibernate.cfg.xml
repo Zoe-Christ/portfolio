@@ -23,7 +23,7 @@
         <mapping class="model.online_haendler" />
         <mapping class="model.online_haendler_has_Product" />
         <mapping class="model.produktion" />
-        <mapping class="model.zulieferer" />
+        <mapping class="model.Zulieferer"/>
         <mapping class="model.Abteilung" />
     </session-factory>
 </hibernate-configuration>
