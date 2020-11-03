@@ -6,15 +6,15 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "Lieferung")
-public class lieferung implements Serializable {
+public class Lieferung implements Serializable {
     @Id
-    @Column(name ="LieferungID", nullable = false)
+    @Column(name = "LieferungID", nullable = false)
     protected Integer LieferungID;
 
-    @Column(name="Abfahrt")
+    @Column(name = "Abfahrt")
     public String Abfahrt;
 
-    @Column(name="Liefertermin")
+    @Column(name = "Liefertermin")
     public Double Liefertermin;
 
     @Column(name = "Gewicht")
@@ -22,7 +22,7 @@ public class lieferung implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "lager_LagerID", nullable = false)
-    protected lager lager;
+    protected Lager lager;
 
     @ManyToOne
     @JoinColumn(name = "lager_Adresse_AdressID", nullable = false)
@@ -30,11 +30,11 @@ public class lieferung implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "spediteur_SpediteurID", nullable = false)
-    protected spediteur spediteur;
+    protected Spediteur spediteur;
 
     @ManyToOne
     @JoinColumn(name = "filiale_FilialeID", nullable = false)
-    protected filiale filiale;
+    protected Filiale filiale;
 
     @ManyToOne
     @JoinColumn(name = "filiale_adresse_AdressID", nullable = false)
@@ -42,11 +42,11 @@ public class lieferung implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "fahrzeug_Fahrzeug_ID", nullable = false)
-    protected fahrzeug fahrzeug;
+    protected Fahrzeug fahrzeug;
 
 
-
-    public lieferung(){ }
+    public Lieferung() {
+    }
 
 
     public Integer getLieferungID() {

@@ -10,11 +10,11 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Adresse")
 public class Adresse implements Serializable {
-    @Id
-    @Column(name ="AdressID", nullable = false)
-    protected Integer AdressID;
-    @Column(name="Strasse")
+    @Column(name = "Strasse")
     public String Strasse;
+    @Id
+    @Column(name = "AdressID", nullable = false)
+    protected Integer AdressID;
 
     @Column(name = "Hausnummer")
     public String Hausnummer;
@@ -25,7 +25,8 @@ public class Adresse implements Serializable {
     @Column(name = "Stadt")
     public String Stadt;
 
-    public Adresse(){ }
+    public Adresse() {
+    }
 
 
     public Integer getAdressID() {

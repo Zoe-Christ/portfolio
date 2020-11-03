@@ -1,11 +1,11 @@
 package repository;
 
-import model.zahlung;
+import model.Zahlung;
 
-public class zahlungRepository extends GenericRepository<zahlung, Long> {
+public class zahlungRepository extends GenericRepository<Zahlung, Long> {
 
     public zahlungRepository() {
-        super( zahlung.class );
+        super(Zahlung.class);
     }
 
 }

@@ -3,8 +3,6 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "zulieferer")
@@ -34,7 +32,7 @@ public class zulieferer implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "fahrzeug_Fahrzeug_ID", nullable = false)
-    protected fahrzeug Fahrzeug;
+    protected model.Fahrzeug Fahrzeug;
 
     @ManyToOne
     @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
@@ -102,11 +100,11 @@ public class zulieferer implements Serializable{
         LieferRabatt = lieferRabatt;
     }
 
-    public fahrzeug getFahrzeug() {
+    public model.Fahrzeug getFahrzeug() {
         return Fahrzeug;
     }
 
-    public void setFahrzeug(fahrzeug fahrzeug) {
+    public void setFahrzeug(model.Fahrzeug fahrzeug) {
         Fahrzeug = fahrzeug;
     }
 

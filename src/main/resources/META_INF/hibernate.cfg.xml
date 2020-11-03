@@ -19,7 +19,7 @@
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
         <!-- Mapping With Model Class Containing Annotations -->
-        <mapping class="model.lager" />
+        <mapping class="model.Lager"/>
         <mapping class="model.online_haendler" />
         <mapping class="model.online_haendler_has_Product" />
         <mapping class="model.produktion" />

@@ -3,7 +3,6 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 
 
 @Entity
@@ -31,7 +30,7 @@ public class produktion implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "lager_LagerID", nullable = false)
-    protected lager Lager;
+    protected model.Lager Lager;
 
     @ManyToOne
     @JoinColumn(name = "qm_QMID1", nullable = false)
@@ -76,11 +75,11 @@ public class produktion implements Serializable{
         Prod_Kosten = prod_Kosten;
     }
 
-    public lager getLager() {
+    public model.Lager getLager() {
         return Lager;
     }
 
-    public void setLager(lager lager) {
+    public void setLager(model.Lager lager) {
         Lager = lager;
     }
 

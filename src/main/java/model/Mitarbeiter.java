@@ -34,7 +34,7 @@ public class Mitarbeiter implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "filiale_FilialeID", nullable = false)
-    protected filiale filiale;
+    protected Filiale filiale;
 
     @ManyToOne
     @JoinColumn(name = "filiale_adresse_AdressID", nullable = false)
@@ -97,11 +97,11 @@ public class Mitarbeiter implements Serializable {
         Tel = tel;
     }
 
-    public model.filiale getFiliale() {
+    public Filiale getFiliale() {
         return filiale;
     }
 
-    public void setFiliale(model.filiale filiale) {
+    public void setFiliale(Filiale filiale) {
         this.filiale = filiale;
     }
 

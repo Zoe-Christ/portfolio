@@ -1,11 +1,11 @@
 package repository;
 
-import model.lager;
+import model.Lager;
 
-public class lagerRepository extends GenericRepository<lager, Long> {
+public class lagerRepository extends GenericRepository<Lager, Long> {
 
     public lagerRepository() {
-        super( lager.class );
+        super(Lager.class);
     }
 
 }

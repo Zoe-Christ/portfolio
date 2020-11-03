@@ -9,62 +9,58 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Abteilung")
 public class Abteilung implements Serializable {
-        @Id
-        @Column(name ="Kuerzel", nullable = false)
-        protected Integer Kuerzel;
+    @Column(name = "Name", nullable = false)
+    public String Name;
+    @Column(name = "Zustaendigkeit")
+    public String Zustaendigkeit;
+    @Column(name = "AnzahlMA")
+    public Integer AnzahlMA;
+    @Column(name = "Kostenstelle")
+    public Integer Kostenstelle;
+    @Id
+    @Column(name = "Kuerzel", nullable = false)
+    protected Integer Kuerzel;
+    @OneToMany(mappedBy = "abteilung")
+    private Set mitarbeiter;
 
-        @Column(name = "Name", nullable = false)
-        public String Name;
 
-        @Column(name = "Zustaendigkeit")
-        public String Zustaendigkeit;
+    public Integer getKuerzel() {
+        return Kuerzel;
+    }
 
-        @Column(name = "AnzahlMA")
-        public Integer AnzahlMA;
+    public void setKuerzel(Integer kuerzel) {
+        Kuerzel = kuerzel;
+    }
 
-        @Column(name = "Kostenstelle")
-        public Integer Kostenstelle;
+    public String getName() {
+        return Name;
+    }
 
-        @OneToMany(mappedBy = "abteilung")
-        private Set mitarbeiter;
+    public void setName(String name) {
+        Name = name;
+    }
 
-        public Integer getKuerzel() {
-                return Kuerzel;
-        }
+    public String getZustaendigkeit() {
+        return Zustaendigkeit;
+    }
 
-        public void setKuerzel(Integer kuerzel) {
-                Kuerzel = kuerzel;
-        }
+    public void setZustaendigkeit(String zustaendigkeit) {
+        Zustaendigkeit = zustaendigkeit;
+    }
 
-        public String getName() {
-                return Name;
-        }
+    public Integer getAnzahlMA() {
+        return AnzahlMA;
+    }
 
-        public void setName(String name) {
-                Name = name;
-        }
+    public void setAnzahlMA(Integer anzahlMA) {
+        AnzahlMA = anzahlMA;
+    }
 
-        public String getZustaendigkeit() {
-                return Zustaendigkeit;
-        }
+    public Integer getKostenstelle() {
+        return Kostenstelle;
+    }
 
-        public void setZustaendigkeit(String zustaendigkeit) {
-                Zustaendigkeit = zustaendigkeit;
-        }
-
-        public Integer getAnzahlMA() {
-                return AnzahlMA;
-        }
-
-        public void setAnzahlMA(Integer anzahlMA) {
-                AnzahlMA = anzahlMA;
-        }
-
-        public Integer getKostenstelle() {
-                return Kostenstelle;
-        }
-
-        public void setKostenstelle(Integer kostenstelle) {
-                Kostenstelle = kostenstelle;
-        }
+    public void setKostenstelle(Integer kostenstelle) {
+        Kostenstelle = kostenstelle;
+    }
 }

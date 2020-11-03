@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "Lager")
-public class lager implements Serializable{
+public class Lager implements Serializable {
 
     @Id
     @Column(name = "LagerID", nullable = false)
@@ -27,21 +27,21 @@ public class lager implements Serializable{
     @JoinColumn(name = "adresse_AdressID", nullable = false)
     protected Adresse Adresse;
 
-    @OneToMany(mappedBy="lager")
+    @OneToMany(mappedBy = "Lager")
     private Set Teil;
 
-    @OneToMany(mappedBy="lager")
+    @OneToMany(mappedBy = "Lager")
     private Set P;
 
-    @OneToMany(mappedBy = "lager")
+    @OneToMany(mappedBy = "Lager")
     private Set Lieferung;
 
     public Set<teil> getT() {
-        return T;
+        return Teil;
     }
 
     public void setT(Set<teil> t) {
-        T = t;
+        Teil = t;
     }
 
     public Set getP() {
@@ -52,12 +52,12 @@ public class lager implements Serializable{
         P = p;
     }
 
-    public Set<lieferung> getL() {
-        return L;
+    public Set<Lieferung> getL() {
+        return Lieferung;
     }
 
-    public void setL(Set<lieferung> l) {
-        L = l;
+    public void setL(Set<Lieferung> l) {
+        Lieferung = l;
     }
 
     public Integer getLagerID() {

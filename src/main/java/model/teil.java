@@ -1,12 +1,7 @@
 package model;
 
 
-import org.hibernate.mapping.Set;
-
 import javax.persistence.*;
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Id;
 import java.io.Serializable;
 
 
@@ -15,8 +10,8 @@ import java.io.Serializable;
 
 public class teil implements Serializable {
     @ManyToOne()
-    @JoinColumn(name= "lager_LagerID", nullable = false)
-    protected lager lager;
+    @JoinColumn(name = "lager_LagerID", nullable = false)
+    protected Lager lager;
 
     private Integer teilID;
 

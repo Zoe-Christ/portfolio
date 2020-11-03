@@ -30,7 +30,7 @@ public class Kundenauftrag implements Serializable {
 
 
     @JoinColumn(name = "zahlung_RechnungsNr", nullable = false)
-    protected zahlung Zahlung;
+    protected model.Zahlung Zahlung;
 
     @ManyToOne
     @JoinColumn(name = "kunde_KundeID", nullable = false)
