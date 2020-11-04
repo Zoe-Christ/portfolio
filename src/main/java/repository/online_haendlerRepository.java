@@ -1,11 +1,11 @@
 package repository;
 
-import model.online_haendler;
+import model.Online_haendler;
 
-public class online_haendlerRepository extends GenericRepository<online_haendler, Long> {
+public class online_haendlerRepository extends GenericRepository<Online_haendler, Long> {
 
     public online_haendlerRepository() {
-        super( online_haendler.class );
+        super( Online_haendler.class );
     }
 
 }

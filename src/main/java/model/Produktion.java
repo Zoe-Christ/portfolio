@@ -6,8 +6,8 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "produktion")
-public class produktion implements Serializable{
+@Table(name = "Produktion")
+public class Produktion implements Serializable{
 
 
 

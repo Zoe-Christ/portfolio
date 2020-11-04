@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "online_haendler")
-public class online_haendler implements Serializable{
+@Table(name = "Online_haendler")
+public class Online_haendler implements Serializable{
     @Id
     @Column(name = "HaendlerID", nullable = false)
     protected Integer HaendlerID;

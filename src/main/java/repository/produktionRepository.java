@@ -1,11 +1,11 @@
 package repository;
 
-import model.produktion;
+import model.Produktion;
 
-public class produktionRepository extends GenericRepository<produktion, Long> {
+public class produktionRepository extends GenericRepository<Produktion, Long> {
 
     public produktionRepository() {
-        super( produktion.class );
+        super( Produktion.class );
     }
 
 }
