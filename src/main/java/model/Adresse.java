@@ -9,13 +9,13 @@ import java.util.Set;
 @Entity
 @Table(name = "adresse")
 public class Adresse implements Serializable {
-    @Column(name = "Strasse")
-    public String strasse;
-    @Column(name = "Hausnummer")
-    public String hausnummer;
     @Id
     @Column(name = "AdressID", nullable = false)
-    protected Integer adressID;
+    private Integer adressID;
+    @Column(name = "Strasse")
+    private String strasse;
+    @Column(name = "Hausnummer")
+    private String hausnummer;
 
     @OneToOne
     @JoinColumn(name = "plz_PLZ")

@@ -9,7 +9,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Einkauf")
 public class Einkauf implements Serializable {
-
+    @Id
+    @Column(name = "EinkaufID", nullable = false)
+    private Integer einkaufID;
     @Column(name = "Saison")
     protected String saison;
     @Column(name = "Richtlinie")

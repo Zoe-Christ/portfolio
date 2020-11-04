@@ -1,17 +1,15 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "Filiale")
 public class Filiale implements Serializable {
+    @Id
+    @Column(name = "FilialeID")
     private Integer filialeID;
 
-    @Id
     public Integer getFilialeID() {
         return filialeID;
     }

@@ -9,11 +9,12 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Fahrzeug")
 public class Fahrzeug implements Serializable {
-    @Column(name = "Bezeichnung")
-    public String bezeichnung;
     @Id
     @Column(name = "Fahrzeug_ID", nullable = false)
     private Integer fahrzeugId;
+    @Column(name = "Bezeichnung")
+    public String bezeichnung;
+
 
     public Integer getFahrzeugId() {
         return fahrzeugId;

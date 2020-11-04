@@ -7,78 +7,68 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Lieferung")
 public class Lieferung implements Serializable {
+    @Column(name = "Abfahrt")
+    public String abfahrt;
+    @Column(name = "Liefertermin")
+    public Double liefertermin;
+    @Column(name = "Gewicht")
+    public Double gewicht;
+    @ManyToOne
+    @JoinColumn(name = "lager_LagerID")
+    protected Lager lager;
+    @ManyToOne
+    @JoinColumn(name = "lager_Adresse_AdressID")
+    protected Adresse Lager_Adresse;
+    @ManyToOne
+    @JoinColumn(name = "spediteur_SpediteurID")
+    protected Spediteur spediteur;
+    @ManyToOne
+    @JoinColumn(name = "filiale_FilialeID")
+    protected Filiale filiale;
+    @ManyToOne
+    @JoinColumn(name = "filiale_adresse_AdressID")
+    protected Adresse Filiale_adresse;
+    @ManyToOne
+    @JoinColumn(name = "fahrzeug_Fahrzeug_ID")
+    protected Fahrzeug fahrzeug;
     @Id
     @Column(name = "LieferungID", nullable = false)
-    protected Integer LieferungID;
-
-    @Column(name = "Abfahrt")
-    public String Abfahrt;
-
-    @Column(name = "Liefertermin")
-    public Double Liefertermin;
-
-    @Column(name = "Gewicht")
-    public Double Gewicht;
-
-    @ManyToOne
-    @JoinColumn(name = "lager_LagerID", nullable = false)
-    protected Lager lager;
-
-    @ManyToOne
-    @JoinColumn(name = "lager_Adresse_AdressID", nullable = false)
-    protected Adresse Lager_Adresse;
-
-    @ManyToOne
-    @JoinColumn(name = "spediteur_SpediteurID", nullable = false)
-    protected Spediteur spediteur;
-
-    @ManyToOne
-    @JoinColumn(name = "filiale_FilialeID", nullable = false)
-    protected Filiale filiale;
-
-    @ManyToOne
-    @JoinColumn(name = "filiale_adresse_AdressID", nullable = false)
-    protected Adresse Filiale_adresse;
-
-    @ManyToOne
-    @JoinColumn(name = "fahrzeug_Fahrzeug_ID", nullable = false)
-    protected Fahrzeug fahrzeug;
+    private Integer lieferungID;
 
 
     public Lieferung() {
     }
 
-
     public Integer getLieferungID() {
-        return LieferungID;
+        return lieferungID;
     }
 
     public void setLieferungID(Integer lieferungID) {
-        LieferungID = lieferungID;
+        this.lieferungID = lieferungID;
     }
 
     public String getAbfahrt() {
-        return Abfahrt;
+        return abfahrt;
     }
 
     public void setAbfahrt(String abfahrt) {
-        Abfahrt = abfahrt;
+        this.abfahrt = abfahrt;
     }
 
     public Double getLiefertermin() {
-        return Liefertermin;
+        return liefertermin;
     }
 
     public void setLiefertermin(Double liefertermin) {
-        Liefertermin = liefertermin;
+        this.liefertermin = liefertermin;
     }
 
     public Double getGewicht() {
-        return Gewicht;
+        return gewicht;
     }
 
     public void setGewicht(Double gewicht) {
-        Gewicht = gewicht;
+        this.gewicht = gewicht;
     }
 
     public Lager getLager() {

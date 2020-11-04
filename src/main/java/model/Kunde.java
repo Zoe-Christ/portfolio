@@ -9,17 +9,17 @@ import java.util.Set;
 @Entity
 @Table(name = "Kunde")
 public class Kunde implements Serializable {
-    @Column(name = "Vorname")
-    public String vorname;
-    @Column(name = "Nachname")
-    public String nachname;
-    @Column(name = "Mail")
-    public String mail;
-    @Column(name = "Tel")
-    public Integer tel;
     @Id
     @Column(name = "KundeID", nullable = false)
-    protected Integer kundeID;
+    private Integer kundeID;
+    @Column(name = "Vorname")
+    private String vorname;
+    @Column(name = "Nachname")
+    private String nachname;
+    @Column(name = "Mail")
+    private String mail;
+    @Column(name = "Tel")
+    private Integer tel;
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(

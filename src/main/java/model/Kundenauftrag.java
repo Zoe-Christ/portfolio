@@ -7,12 +7,10 @@ import java.util.Date;
 @Entity
 @Table(name = "Kundenauftrag")
 public class Kundenauftrag implements Serializable {
-    @Id
-    @Column(name = "AuftragID", nullable = false)
-    protected Integer auftragID;
     @ManyToOne
     @JoinColumn(name = "zahlung_RechnungsNr", nullable = false)
     protected Zahlung Zahlung;
+
     @Column(name = "Datum")
     private Date datum;
     @Column(name = "Gewicht")
@@ -23,6 +21,9 @@ public class Kundenauftrag implements Serializable {
     private String bearbeitungsstatus;
     @Column(name = "Lieferart")
     private String lieferart;
+    @Id
+    @Column(name = "AuftragID", nullable = false)
+    private Integer auftragID;
 
     @ManyToOne
     @JoinColumn(name = "kunde_KundeID", nullable = false)

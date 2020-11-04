@@ -9,11 +9,10 @@ import java.io.Serializable;
 public class Plz implements Serializable {
     @Id
     @Column(name = "PLZ", nullable = false)
-    protected Integer PLZ;
+    private Integer PLZ;
 
     @Column(name = "Stadt")
-    public String Stadt;
-
+    private String stadt;
 
     public Plz() {
     }
@@ -27,11 +26,11 @@ public class Plz implements Serializable {
     }
 
     public String getStadt() {
-        return Stadt;
+        return stadt;
     }
 
     public void setStadt(String stadt) {
-        Stadt = stadt;
+        this.stadt = stadt;
     }
 
     @OneToOne(mappedBy = "PLZ")
