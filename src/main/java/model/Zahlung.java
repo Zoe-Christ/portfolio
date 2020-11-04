@@ -11,13 +11,16 @@ import java.util.Date;
 @Entity
 @Table(name = "Zahlung")
 public class Zahlung implements Serializable {
-    @Column(name = "Zahlungsart")
-    public String Zahlungsart;
-    @Column(name = "Betrag")
-    public Integer Betrag;
+
     @Id
     @Column(name = "RechnungsNr", nullable = false)
     protected Integer RechnungsNr;
+
+    @Column(name = "Zahlungsart")
+    public String Zahlungsart;
+
+    @Column(name = "Betrag")
+    public Integer Betrag;
 
     @Column(name = "Status")
     public String Status;
@@ -27,6 +30,7 @@ public class Zahlung implements Serializable {
 
     @Column(name = "FaelligkeitsDatum")
     public Date FaelligkeitsDatum;
+
 
 
     public Zahlung() {

@@ -6,131 +6,131 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name = "Zulieferer")
+@Table(name = "zulieferer")
 public class Zulieferer implements Serializable {
 
     @Id
     @Column(name = "ZuliefererID", nullable = false)
-    protected Integer ZuliefererID;
+    private Integer zuliefererID;
 
     @Column(name = "Name", nullable = false)
-    protected String Name;
+    private String name;
 
     @Column(name = "Zul_Gewicht", nullable = false)
-    protected Long Zul_Gewicht;
+    private Long zul_Gewicht;
 
     @Column(name = "Liefertreue", nullable = false)
-    protected String Liefertreue;
+    private String liefertreue;
 
     @Column(name = "HandelsregisterNr", nullable = false)
-    protected Integer HandelsregisterNr;
+    private Integer handelsregisterNr;
 
     @Column(name = "Ansprechpartner", nullable = false)
-    protected String Ansprechpartner;
+    private String ansprechpartner;
 
-    @Column(name = "LieferRabatt", nullable = false)
-    protected String LieferRabatt;
+    @Column(name = "LieferRabatt")
+    private String lieferRabatt;
 
     @ManyToOne
     @JoinColumn(name = "fahrzeug_Fahrzeug_ID", nullable = false)
-    protected model.Fahrzeug Fahrzeug;
+    private Fahrzeug fahrzeug;
 
     @ManyToOne
     @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
-    protected vertrag V;
+    private Vertrag vertrag;
 
     @OneToMany(mappedBy = "zulieferer")
-    private Set<Bestellung> B;
+    private Set<Bestellung> bestellung;
 
     @OneToMany(mappedBy = "zulieferer")
-    private Set<Teil> T;
+    private Set<Teil> teil;
 
     public Integer getZuliefererID() {
-        return ZuliefererID;
+        return zuliefererID;
     }
 
     public void setZuliefererID(Integer zuliefererID) {
-        ZuliefererID = zuliefererID;
+        this.zuliefererID = zuliefererID;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public Long getZul_Gewicht() {
-        return Zul_Gewicht;
+        return zul_Gewicht;
     }
 
     public void setZul_Gewicht(Long zul_Gewicht) {
-        Zul_Gewicht = zul_Gewicht;
+        this.zul_Gewicht = zul_Gewicht;
     }
 
     public String getLiefertreue() {
-        return Liefertreue;
+        return liefertreue;
     }
 
     public void setLiefertreue(String liefertreue) {
-        Liefertreue = liefertreue;
+        this.liefertreue = liefertreue;
     }
 
     public Integer getHandelsregisterNr() {
-        return HandelsregisterNr;
+        return handelsregisterNr;
     }
 
     public void setHandelsregisterNr(Integer handelsregisterNr) {
-        HandelsregisterNr = handelsregisterNr;
+        this.handelsregisterNr = handelsregisterNr;
     }
 
     public String getAnsprechpartner() {
-        return Ansprechpartner;
+        return ansprechpartner;
     }
 
     public void setAnsprechpartner(String ansprechpartner) {
-        Ansprechpartner = ansprechpartner;
+        this.ansprechpartner = ansprechpartner;
     }
 
     public String getLieferRabatt() {
-        return LieferRabatt;
+        return lieferRabatt;
     }
 
     public void setLieferRabatt(String lieferRabatt) {
-        LieferRabatt = lieferRabatt;
+        this.lieferRabatt = lieferRabatt;
     }
 
-    public model.Fahrzeug getFahrzeug() {
-        return Fahrzeug;
+    public Fahrzeug getFahrzeug() {
+        return fahrzeug;
     }
 
-    public void setFahrzeug(model.Fahrzeug fahrzeug) {
-        Fahrzeug = fahrzeug;
+    public void setFahrzeug(Fahrzeug fahrzeug) {
+        fahrzeug = fahrzeug;
     }
 
-    public vertrag getV() {
-        return V;
+    public Vertrag getVertrag() {
+        return vertrag;
     }
 
-    public void setV(vertrag v) {
-        V = v;
+    public void setVertrag(Vertrag vertrag) {
+        this.vertrag = vertrag;
     }
 
-    public Set<Bestellung> getB() {
-        return B;
+    public Set<Bestellung> getBestellung() {
+        return bestellung;
     }
 
-    public void setB(Set<Bestellung> b) {
-        B = b;
+    public void setBestellung(Set<Bestellung> bestellung) {
+        this.bestellung = bestellung;
     }
 
-    public Set<Teil> getT() {
-        return T;
+    public Set<Teil> getTeil() {
+        return teil;
     }
 
-    public void setT(Set<Teil> t) {
-        T = t;
+    public void setTeil(Set<Teil> teil) {
+        this.teil = teil;
     }
 
 }
