@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "Adresse")
+@Table(name = "adresse")
 public class Adresse implements Serializable {
     @Column(name = "Strasse")
     public String Strasse;
@@ -32,6 +32,9 @@ public class Adresse implements Serializable {
 
     @ManyToMany(mappedBy = "Adresse")
     private Set<Kunde> kunden = new HashSet<>();
+
+    @ManyToMany(mappedBy = "Adresse")
+    private Set<Mitarbeiter> mitarbeiter = new HashSet<>();
 
     public Adresse() {
     }

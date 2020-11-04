@@ -31,8 +31,8 @@ public class Mitarbeiter implements Serializable {
     @JoinColumn(name = "filiale_FilialeID", nullable = false)
     protected Filiale filiale;
 
-    @ManyToOne
-    @JoinColumn(name = "filiale_adresse_AdressID", nullable = false)
+    @ManyToMany
+    @JoinColumn(name = "adresse_AdressID", nullable = false)
     protected Adresse Adresse;
 
     @ManyToOne
