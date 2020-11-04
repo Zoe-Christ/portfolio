@@ -3,49 +3,63 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "Adresse")
+@Table(name = "adresse")
 public class Adresse implements Serializable {
     @Column(name = "Strasse")
-    public String Strasse;
+    public String strasse;
+    @Column(name = "Hausnummer")
+    public String hausnummer;
     @Id
     @Column(name = "AdressID", nullable = false)
-    protected Integer AdressID;
-
-    @Column(name = "Hausnummer")
-    public String Hausnummer;
+    protected Integer adressID;
 
     @OneToOne
     @JoinColumn(name = "plz_PLZ")
     private Plz plz;
 
+    @OneToOne
+    @JoinColumn(name = "adresse_AdressID")
+    protected Filiale filiale;
+
+    @OneToOne
+    @JoinColumn(name = "adresse_AdressID")
+    protected Lager lager;
+
+    @ManyToMany(mappedBy = "Adresse")
+    private Set<Kunde> kunden = new HashSet<>();
+
+    @ManyToMany(mappedBy = "Adresse")
+    private Set<Mitarbeiter> mitarbeiter = new HashSet<>();
+
     public Adresse() {
     }
 
-
     public Integer getAdressID() {
-        return AdressID;
+        return adressID;
     }
 
     public void setAdressID(Integer adressID) {
-        AdressID = adressID;
+        this.adressID = adressID;
     }
 
     public String getStrasse() {
-        return Strasse;
+        return strasse;
     }
 
     public void setStrasse(String strasse) {
-        Strasse = strasse;
+        this.strasse = strasse;
     }
 
     public String getHausnummer() {
-        return Hausnummer;
+        return hausnummer;
     }
 
     public void setHausnummer(String hausnummer) {
-        Hausnummer = hausnummer;
+        this.hausnummer = hausnummer;
     }
 
 }

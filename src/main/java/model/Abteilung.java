@@ -1,66 +1,70 @@
 package model;
 
 
-import org.hibernate.mapping.Set;
-
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "Abteilung")
 public class Abteilung implements Serializable {
     @Column(name = "Name", nullable = false)
-    public String Name;
+    public String name;
     @Column(name = "Zustaendigkeit")
-    public String Zustaendigkeit;
+    public String zustaendigkeit;
     @Column(name = "AnzahlMA")
-    public Integer AnzahlMA;
+    public Integer anzahlMA;
     @Column(name = "Kostenstelle")
-    public Integer Kostenstelle;
+    public Integer kostenstelle;
     @Id
     @Column(name = "Kuerzel", nullable = false)
-    protected Integer Kuerzel;
-    @OneToMany(mappedBy = "abteilung")
-    private Set mitarbeiter;
+    protected Integer kuerzel;
 
+    @OneToMany(mappedBy = "Abteilung")
+    @JoinColumn(name = "abteilung_Kuerzel1")
+    private Set<Mitarbeiter> mitarbeiter;
+
+    public Set getMitarbeiter() {
+        return mitarbeiter;
+    }
 
     public Integer getKuerzel() {
-        return Kuerzel;
+        return kuerzel;
     }
 
     public void setKuerzel(Integer kuerzel) {
-        Kuerzel = kuerzel;
+        kuerzel = kuerzel;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getZustaendigkeit() {
-        return Zustaendigkeit;
+        return zustaendigkeit;
     }
 
     public void setZustaendigkeit(String zustaendigkeit) {
-        Zustaendigkeit = zustaendigkeit;
+        this.zustaendigkeit = zustaendigkeit;
     }
 
     public Integer getAnzahlMA() {
-        return AnzahlMA;
+        return anzahlMA;
     }
 
     public void setAnzahlMA(Integer anzahlMA) {
-        AnzahlMA = anzahlMA;
+        this.anzahlMA = anzahlMA;
     }
 
     public Integer getKostenstelle() {
-        return Kostenstelle;
+        return kostenstelle;
     }
 
     public void setKostenstelle(Integer kostenstelle) {
-        Kostenstelle = kostenstelle;
+        this.kostenstelle = kostenstelle;
     }
 }

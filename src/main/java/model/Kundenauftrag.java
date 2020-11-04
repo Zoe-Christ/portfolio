@@ -1,7 +1,5 @@
 package model;
 
-
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -11,26 +9,20 @@ import java.util.Date;
 public class Kundenauftrag implements Serializable {
     @Id
     @Column(name = "AuftragID", nullable = false)
-    protected Integer AuftragID;
-
-    @Column(name = "Datum")
-    public Date Datum;
-
-    @Column(name = "Gewicht")
-    public Double Gewicht;
-
-    @Column(name = "Warenwert")
-    public Double Warenwert;
-
-    @Column(name = "Bearbeitungsstatus")
-    public String Bearbeitungsstatus;
-
-    @Column(name = "Lieferart")
-    public String Lieferart;
-
-
+    protected Integer auftragID;
+    @ManyToOne
     @JoinColumn(name = "zahlung_RechnungsNr", nullable = false)
-    protected model.Zahlung Zahlung;
+    protected Zahlung Zahlung;
+    @Column(name = "Datum")
+    private Date datum;
+    @Column(name = "Gewicht")
+    private Double gewicht;
+    @Column(name = "Warenwert")
+    private Double warenwert;
+    @Column(name = "Bearbeitungsstatus")
+    private String bearbeitungsstatus;
+    @Column(name = "Lieferart")
+    private String lieferart;
 
     @ManyToOne
     @JoinColumn(name = "kunde_KundeID", nullable = false)
@@ -45,53 +37,52 @@ public class Kundenauftrag implements Serializable {
     public Kundenauftrag() {
     }
 
-
     public Integer getAuftragID() {
-        return AuftragID;
+        return auftragID;
     }
 
     public void setAuftragID(Integer auftragID) {
-        AuftragID = auftragID;
+        this.auftragID = auftragID;
     }
 
     public Date getDatum() {
-        return Datum;
+        return datum;
     }
 
     public void setDatum(Date datum) {
-        Datum = datum;
+        this.datum = datum;
     }
 
     public Double getGewicht() {
-        return Gewicht;
+        return gewicht;
     }
 
     public void setGewicht(Double gewicht) {
-        Gewicht = gewicht;
+        this.gewicht = gewicht;
     }
 
     public Double getWarenwert() {
-        return Warenwert;
+        return warenwert;
     }
 
     public void setWarenwert(Double warenwert) {
-        Warenwert = warenwert;
+        this.warenwert = warenwert;
     }
 
     public String getBearbeitungsstatus() {
-        return Bearbeitungsstatus;
+        return bearbeitungsstatus;
     }
 
     public void setBearbeitungsstatus(String bearbeitungsstatus) {
-        Bearbeitungsstatus = bearbeitungsstatus;
+        this.bearbeitungsstatus = bearbeitungsstatus;
     }
 
     public String getLieferart() {
-        return Lieferart;
+        return lieferart;
     }
 
     public void setLieferart(String lieferart) {
-        Lieferart = lieferart;
+        this.lieferart = lieferart;
     }
 }
 

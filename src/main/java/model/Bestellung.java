@@ -8,20 +8,21 @@ import java.util.Date;
 @Table(name = "Bestellung")
 public class Bestellung implements Serializable {
     @Column(name = "Datum")
-    public Date Datum;
-    @Column(name = "Gewicht")
-    protected Integer Gewicht;
-    @Column(name = "Warenwert")
-    protected Double Warenwert;
-    @Column(name = "Bearbeitungsstatus")
-    protected String Bearbeitungsstatus;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "einkauf_EinkaufID", nullable = false)
-    protected Einkauf Einkauf;
-    private Integer bestellungID;
-
+    public Date datum;
     @Id
     @Column(name = "BestellungID", nullable = false)
+    private Integer bestellungID;
+    @Column(name = "Gewicht")
+    private Integer gewicht;
+    @Column(name = "Warenwert")
+    private Double warenwert;
+    @Column(name = "Bearbeitungsstatus")
+    private String bearbeitungsstatus;
+
+    @ManyToOne()
+    @JoinColumn(name = "einkauf_EinkaufID", nullable = false)
+    private Einkauf Einkauf;
+
     public Integer getBestellungID() {
         return bestellungID;
     }
@@ -31,35 +32,35 @@ public class Bestellung implements Serializable {
     }
 
     public Date getDatum() {
-        return Datum;
+        return datum;
     }
 
     public void setDatum(Date datum) {
-        Datum = datum;
+        this.datum = datum;
     }
 
     public Integer getGewicht() {
-        return Gewicht;
+        return gewicht;
     }
 
     public void setGewicht(Integer gewicht) {
-        Gewicht = gewicht;
+        this.gewicht = gewicht;
     }
 
     public Double getWarenwert() {
-        return Warenwert;
+        return warenwert;
     }
 
     public void setWarenwert(Double warenwert) {
-        Warenwert = warenwert;
+        this.warenwert = warenwert;
     }
 
     public String getBearbeitungsstatus() {
-        return Bearbeitungsstatus;
+        return bearbeitungsstatus;
     }
 
     public void setBearbeitungsstatus(String bearbeitungsstatus) {
-        Bearbeitungsstatus = bearbeitungsstatus;
+        this.bearbeitungsstatus = bearbeitungsstatus;
     }
 
 }

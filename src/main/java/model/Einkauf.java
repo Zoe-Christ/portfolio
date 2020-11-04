@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "Einkauf")
-public class Einkauf implements Serializable {
+public class Einkauf extends Abteilung implements Serializable {
 
     @Column(name = "Saison")
     protected String saison;
