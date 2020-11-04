@@ -1,11 +1,10 @@
 package model;
 
-import org.hibernate.annotations.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Kunde")
@@ -25,6 +24,13 @@ public class Kunde implements Serializable {
     @Column(name = "Tel")
     public Integer Tel;
 
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "Kunde_has_Adresse",
+            joinColumns = {@JoinColumn(name = "KundeID")},
+            inverseJoinColumns = {@JoinColumn(name = "AdressID")}
+    )
+    Set<Adresse> projects = new HashSet<>();
 
     public Kunde() {
     }

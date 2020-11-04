@@ -3,6 +3,8 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Adresse")
@@ -19,6 +21,12 @@ public class Adresse implements Serializable {
     @OneToOne
     @JoinColumn(name = "plz_PLZ")
     private Plz plz;
+
+    @OneToOne
+    @JoinColumn(name = "Filiale_AdressID")
+    protected Filiale filiale;
+    @ManyToMany(mappedBy = "Adresse")
+    private Set<Kunde> kunden = new HashSet<>();
 
     public Adresse() {
     }
