@@ -8,17 +8,18 @@ import java.util.Set;
 @Entity
 @Table(name = "Abteilung")
 public class Abteilung implements Serializable {
-    @Column(name = "Name", nullable = false)
-    public String name;
-    @Column(name = "Zustaendigkeit")
-    public String zustaendigkeit;
-    @Column(name = "AnzahlMA")
-    public Integer anzahlMA;
-    @Column(name = "Kostenstelle")
-    public Integer kostenstelle;
     @Id
     @Column(name = "Kuerzel", nullable = false)
-    protected Integer kuerzel;
+    private Integer kuerzel;
+    @Column(name = "Name", nullable = false)
+    private String name;
+    @Column(name = "Zustaendigkeit")
+    private String zustaendigkeit;
+    @Column(name = "AnzahlMA")
+    private Integer anzahlMA;
+    @Column(name = "Kostenstelle")
+    private Integer kostenstelle;
+
 
     @OneToMany(mappedBy = "Abteilung")
     @JoinColumn(name = "abteilung_Kuerzel1")

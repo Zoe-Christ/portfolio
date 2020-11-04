@@ -9,16 +9,15 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Einkauf")
 public class Einkauf extends Abteilung implements Serializable {
-
-    @Column(name = "Saison")
-    protected String saison;
-    @Column(name = "Richtlinie")
-    protected String richtlinie;
-    @Column(name = "Bestandswert")
-    protected Double bestandswert;
     @Id
     @Column(name = "EinkaufID", nullable = false)
     private Integer einkaufID;
+    @Column(name = "Saison")
+    private String saison;
+    @Column(name = "Richtlinie")
+    private String richtlinie;
+    @Column(name = "Bestandswert")
+    private Double bestandswert;
     @Column(name = "Budget")
     private Double budget;
 

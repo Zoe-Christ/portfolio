@@ -9,22 +9,22 @@ import java.io.Serializable;
 public class Mitarbeiter implements Serializable {
     @Id
     @Column(name = "MitarbeiterID", nullable = false)
-    protected Integer MitarbeiterID;
+    private Integer mitarbeiterID;
 
     @Column(name = "Vorname")
-    public String Vorname;
+    private String vorname;
 
     @Column(name = "Nachname")
-    public String Nachname;
+    private String nachname;
 
     @Column(name = "Mail")
-    public String Mail;
+    private String mail;
 
     @Column(name = "Gehalt")
-    public Double Gehalt;
+    private Double gehalt;
 
     @Column(name = "Tel")
-    public Integer Tel;
+    private Integer tel;
 
 
     @ManyToOne
@@ -45,51 +45,51 @@ public class Mitarbeiter implements Serializable {
 
 
     public Integer getMitarbeiterID() {
-        return MitarbeiterID;
+        return mitarbeiterID;
     }
 
     public void setMitarbeiterID(Integer mitarbeiterID) {
-        MitarbeiterID = mitarbeiterID;
+        this.mitarbeiterID = mitarbeiterID;
     }
 
     public String getVorname() {
-        return Vorname;
+        return vorname;
     }
 
     public void setVorname(String vorname) {
-        Vorname = vorname;
+        this.vorname = vorname;
     }
 
     public String getNachname() {
-        return Nachname;
+        return nachname;
     }
 
     public void setNachname(String nachname) {
-        Nachname = nachname;
+        this.nachname = nachname;
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
     public void setMail(String mail) {
-        Mail = mail;
+        this.mail = mail;
     }
 
     public Double getGehalt() {
-        return Gehalt;
+        return gehalt;
     }
 
     public void setGehalt(Double gehalt) {
-        Gehalt = gehalt;
+        this.gehalt = gehalt;
     }
 
     public Integer getTel() {
-        return Tel;
+        return tel;
     }
 
     public void setTel(Integer tel) {
-        Tel = tel;
+        this.tel = tel;
     }
 
     public Filiale getFiliale() {
