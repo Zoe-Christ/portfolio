@@ -1,16 +1,11 @@
 package model;
 
-import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Table;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(appliesTo = "model.mitarbeiter")
+@Table(name = "Mitarbeiter")
 public class Mitarbeiter implements Serializable {
     @Id
     @Column(name = "MitarbeiterID", nullable = false)

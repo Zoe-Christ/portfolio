@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "qm")
-public class qm implements Serializable {
+public class qm extends Abteilung implements Serializable {
     public void setQMID(Integer qmid) {
         this.QMID = qmid;
     }

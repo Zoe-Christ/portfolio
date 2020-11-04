@@ -1,10 +1,9 @@
 package model;
 
 
-import org.hibernate.mapping.Set;
-
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "Abteilung")
@@ -20,9 +19,13 @@ public class Abteilung implements Serializable {
     @Id
     @Column(name = "Kuerzel", nullable = false)
     protected Integer Kuerzel;
-    @OneToMany(mappedBy = "abteilung")
-    private Set mitarbeiter;
+    @OneToMany(mappedBy = "Abteilung")
+    @JoinColumn(name = "abteilung_Kuerzel1")
+    private Set<Mitarbeiter> mitarbeiter;
 
+    public Set getMitarbeiter() {
+        return mitarbeiter;
+    }
 
     public Integer getKuerzel() {
         return Kuerzel;
