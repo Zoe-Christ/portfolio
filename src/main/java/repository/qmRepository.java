@@ -1,10 +1,10 @@
 package repository;
 
-import model.qm;
+import model.Qualitaetsmanagement;
 
-public class qmRepository extends GenericRepository<qm, Long> {
+public class qmRepository extends GenericRepository<Qualitaetsmanagement, Long> {
 
     public qmRepository() {
-        super(qm.class);
+        super(Qualitaetsmanagement.class);
     }
 }

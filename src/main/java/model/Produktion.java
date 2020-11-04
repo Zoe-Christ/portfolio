@@ -34,11 +34,11 @@ public class Produktion implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "qm_QMID1", nullable = false)
-    protected qm QM;
+    protected Qualitaetsmanagement QM;
 
     @ManyToOne
     @JoinColumn(name = "qm_abteilung_Kuerzel", nullable = false)
-    protected qm QM;
+    protected Qualitaetsmanagement QM;
 
     @OneToMany(mappedBy="produktion")
     private Set<maschine> maschine;
@@ -83,11 +83,11 @@ public class Produktion implements Serializable{
         Lager = lager;
     }
 
-    public qm getQM() {
+    public Qualitaetsmanagement getQM() {
         return QM;
     }
 
-    public void setQM(qm QM) {
+    public void setQM(Qualitaetsmanagement QM) {
         this.QM = QM;
     }
 

@@ -1,10 +1,7 @@
 package model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -31,7 +28,9 @@ public class Zahlung implements Serializable {
     @Column(name = "FaelligkeitsDatum")
     public Date FaelligkeitsDatum;
 
-
+    @ManyToOne()
+    @JoinColumn(name = "kundenauftrag_AuftragID")
+    private Kundenauftrag kundenauftrag;
 
     public Zahlung() {
     }
