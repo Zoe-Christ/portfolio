@@ -8,23 +8,19 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "Online_haendler")
-public class Online_haendler implements Serializable{
-    @Id
-    @Column(name = "HaendlerID", nullable = false)
-    protected Integer HaendlerID;
-
-    @Column(name = "Name", nullable = false)
-    protected String Name;
-
-    @Column(name = "HandelsregisterNr", nullable = false)
-    protected String HandelsregisterNr;
-
-    @Column(name = "AnsprechPartner", nullable = false)
-    protected String AnsprechPartner;
-
+public class Online_haendler implements Serializable {
     @ManyToOne
     @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
-    protected vertrag Vertrag;
+    protected Vertrag Vertrag;
+    @Id
+    @Column(name = "HaendlerID", nullable = false)
+    private Integer haendlerID;
+    @Column(name = "Name", nullable = false)
+    private String name;
+    @Column(name = "HandelsregisterNr", nullable = false)
+    private String handelsregisterNr;
+    @Column(name = "AnsprechPartner", nullable = false)
+    private String ansprechPartner;
 
     @OneToMany(mappedBy = "online_haendler")
     private Set<Kundenauftrag> K;
@@ -33,35 +29,35 @@ public class Online_haendler implements Serializable{
     private Set<online_haendler_has_product> P;
 
     public Integer getHaendlerID() {
-        return HaendlerID;
+        return haendlerID;
     }
 
     public void setHaendlerID(Integer haendlerID) {
-        HaendlerID = haendlerID;
+        this.haendlerID = haendlerID;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getHandelsregisterNr() {
-        return HandelsregisterNr;
+        return handelsregisterNr;
     }
 
     public void setHandelsregisterNr(String handelsregisterNr) {
-        HandelsregisterNr = handelsregisterNr;
+        this.handelsregisterNr = handelsregisterNr;
     }
 
     public String getAnsprechPartner() {
-        return AnsprechPartner;
+        return ansprechPartner;
     }
 
     public void setAnsprechPartner(String ansprechPartner) {
-        AnsprechPartner = ansprechPartner;
+        this.ansprechPartner = ansprechPartner;
     }
 
     public vertrag getVertrag() {
