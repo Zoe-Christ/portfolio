@@ -10,13 +10,12 @@ import java.util.Set;
 @Table(name = "adresse")
 public class Adresse implements Serializable {
     @Column(name = "Strasse")
-    public String Strasse;
+    public String strasse;
+    @Column(name = "Hausnummer")
+    public String hausnummer;
     @Id
     @Column(name = "AdressID", nullable = false)
-    protected Integer AdressID;
-
-    @Column(name = "Hausnummer")
-    public String Hausnummer;
+    protected Integer adressID;
 
     @OneToOne
     @JoinColumn(name = "plz_PLZ")
@@ -39,29 +38,28 @@ public class Adresse implements Serializable {
     public Adresse() {
     }
 
-
     public Integer getAdressID() {
-        return AdressID;
+        return adressID;
     }
 
     public void setAdressID(Integer adressID) {
-        AdressID = adressID;
+        this.adressID = adressID;
     }
 
     public String getStrasse() {
-        return Strasse;
+        return strasse;
     }
 
     public void setStrasse(String strasse) {
-        Strasse = strasse;
+        this.strasse = strasse;
     }
 
     public String getHausnummer() {
-        return Hausnummer;
+        return hausnummer;
     }
 
     public void setHausnummer(String hausnummer) {
-        Hausnummer = hausnummer;
+        this.hausnummer = hausnummer;
     }
 
 }

@@ -9,20 +9,17 @@ import java.util.Set;
 @Entity
 @Table(name = "Kunde")
 public class Kunde implements Serializable {
+    @Column(name = "Vorname")
+    public String vorname;
+    @Column(name = "Nachname")
+    public String nachname;
+    @Column(name = "Mail")
+    public String mail;
+    @Column(name = "Tel")
+    public Integer tel;
     @Id
     @Column(name = "KundeID", nullable = false)
-    protected Integer KundeID;
-    @Column(name = "Vorname")
-    public String Vorname;
-
-    @Column(name = "Nachname")
-    public String Nachname;
-
-    @Column(name = "Mail")
-    public String Mail;
-
-    @Column(name = "Tel")
-    public Integer Tel;
+    protected Integer kundeID;
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
@@ -35,45 +32,44 @@ public class Kunde implements Serializable {
     public Kunde() {
     }
 
-
     public Integer getkundeID() {
-        return KundeID;
+        return kundeID;
     }
 
     public void setkundeID(Integer kundeID) {
-        KundeID = kundeID;
+        this.kundeID = kundeID;
     }
 
     public String getVorname() {
-        return Vorname;
+        return vorname;
     }
 
     public void setVorname(String vorname) {
-        Vorname = vorname;
+        this.vorname = vorname;
     }
 
     public String getNachname() {
-        return Nachname;
+        return nachname;
     }
 
     public void setNachname(String nachname) {
-        Nachname = nachname;
+        this.nachname = nachname;
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
     public void setMail(String mail) {
-        Mail = mail;
+        this.mail = mail;
     }
 
     public Integer getTel() {
-        return Tel;
+        return tel;
     }
 
     public void setTel(Integer tel) {
-        Tel = tel;
+        this.tel = tel;
     }
 }
 
