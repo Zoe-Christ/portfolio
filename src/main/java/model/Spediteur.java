@@ -9,8 +9,8 @@ import java.util.Set;
 public class Spediteur implements Serializable {
 
     @Id
-    @Column(name = "ID", nullable = false)
-    private Integer Spediteur_ID;
+    @Column(name = "SpediteurID", nullable = false)
+    private Integer spediteurID;
 
     @Column(name = "Name", nullable = false)
     private String name;
@@ -37,12 +37,12 @@ public class Spediteur implements Serializable {
     @OneToMany(mappedBy = "spediteur")
     private Set<Lieferung> lieferung;
 
-    public Integer getSpediteur_ID() {
-        return Spediteur_ID;
+    public Integer getSpediteurID() {
+        return spediteurID;
     }
 
-    public void setSpediteur_ID(Integer spediteur_ID) {
-        Spediteur_ID = spediteur_ID;
+    public void setSpediteurID(Integer spediteurID) {
+        this.spediteurID = spediteurID;
     }
 
     public String getName() {

@@ -24,8 +24,8 @@ public class Kunde implements Serializable {
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "Kunde_has_Adresse",
-            joinColumns = {@JoinColumn(name = "KundeID")},
-            inverseJoinColumns = {@JoinColumn(name = "AdressID")}
+            joinColumns = {@JoinColumn(name = "kunde_KundeID")},
+            inverseJoinColumns = {@JoinColumn(name = "adresse_AdressID")}
     )
     Set<Adresse> projects = new HashSet<>();
 

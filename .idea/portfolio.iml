@@ -13,11 +13,12 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="ORMExamplePU" value="cfded528-3606-423a-9e25-c3a70dbdf612" />
+          <factory-entry name="portfolio" value="95d22dec-38eb-43aa-b7fa-c4ddc61ca3ca" />
         </datasource-mapping>
         <naming-strategy-map />
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META_INF/persistence.xml" />
       </configuration>
     </facet>
   </component>

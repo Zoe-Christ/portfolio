@@ -18,9 +18,6 @@ public class Einkauf implements Serializable {
     protected String richtlinie;
     @Column(name = "Bestandswert")
     protected Double bestandswert;
-    @Id
-    @Column(name = "EinkaufID", nullable = false)
-    private Integer einkaufID;
     @Column(name = "Budget")
     private Double budget;
 

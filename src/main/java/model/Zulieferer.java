@@ -35,7 +35,7 @@ public class Zulieferer implements Serializable {
     @JoinColumn(name = "fahrzeug_Fahrzeug_ID")
     protected Fahrzeug fahrzeug;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
     protected Vertrag vertrag;
 

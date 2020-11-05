@@ -20,8 +20,13 @@ public class Bestellung implements Serializable {
     private String bearbeitungsstatus;
 
     @ManyToOne()
-    @JoinColumn(name = "einkauf_EinkaufID", nullable = false)
-    private Einkauf Einkauf;
+    @JoinColumns({
+            @JoinColumn(name = "einkauf_EinkaufID", referencedColumnName = "EinkaufID", nullable = false), @JoinColumn(name = "einkauf_Abteilung_Kuerzel", referencedColumnName = "Abteilung_Kuerzel", nullable = false)})
+    private Einkauf einkauf;
+
+    @ManyToOne()
+    @JoinColumn(name = "zulieferer_ZuliefererID", nullable = false)
+    private Zulieferer zulieferer;
 
     public Integer getBestellungID() {
         return bestellungID;
