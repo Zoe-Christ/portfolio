@@ -31,13 +31,13 @@ public class Zulieferer implements Serializable {
     @Column(name = "LieferRabatt")
     private String lieferRabatt;
 
-    @ManyToOne
-    @JoinColumn(name = "fahrzeug_Fahrzeug_ID", nullable = false)
-    private Fahrzeug fahrzeug;
+    @ManyToOne()
+    @JoinColumn(name = "fahrzeug_Fahrzeug_ID")
+    protected Fahrzeug fahrzeug;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
-    private Vertrag vertrag;
+    protected Vertrag vertrag;
 
     @OneToMany(mappedBy = "zulieferer")
     private Set<Bestellung> bestellung;

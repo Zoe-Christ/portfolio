@@ -8,13 +8,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Teil")
 public class Teil implements Serializable {
-    @ManyToOne()
-    @JoinColumn(name = "lager_LagerID", nullable = false)
-    protected Lager lager;
-
-    @ManyToOne()
-    @JoinColumn(name = "produkt_ProduktNR")
-    private Produkt produkt;
 
     @Id
     @Column(name = "TeilID", nullable = false)
@@ -31,6 +24,24 @@ public class Teil implements Serializable {
 
     @Column(name = "Preis")
     public Double Preis;
+
+    @ManyToOne()
+    @JoinColumn(name = "lager_LagerID", nullable = false)
+    protected Lager lager;
+
+    @ManyToOne()
+    @JoinColumn(name = "produkt_ProduktNR")
+    private Produkt produkt;
+
+    @ManyToOne
+    @JoinColumn(name="zulieferer_ZuliefererID", nullable=false)
+    private Zulieferer zulieferer;
+
+    @ManyToOne
+    @JoinColumn(name="maschine_MaschineID", nullable=false)
+    private Maschine maschine;
+
+    public Teil() {}
 
     public Integer getTeilID() {
         return teilID;

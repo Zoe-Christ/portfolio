@@ -12,8 +12,8 @@ public class Fahrzeug implements Serializable {
     @Id
     @Column(name = "Fahrzeug_ID", nullable = false)
     private Integer fahrzeugId;
-    @Column(name = "Bezeichnung")
-    public String bezeichnung;
+    @Column(name = "Bezeichnung", nullable = false)
+    private String bezeichnung;
 
 
     public Integer getFahrzeugId() {

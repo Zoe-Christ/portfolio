@@ -1,11 +1,9 @@
 package model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
@@ -34,6 +32,16 @@ public class Qualitaetsmanagement extends Abteilung implements Serializable {
 
     @Column(name= "Pruefbereich")
     private String Pruefbereich;
+
+    @OneToMany(mappedBy = "qm")
+    private Set<Produkt> produkt;
+
+    @OneToMany(mappedBy = "qm")
+    private Set<Produktion> produktion;
+
+    @ManyToOne()
+    @JoinColumn(name = "abteilung_Kuerzel", nullable = false)
+    protected Abteilung abteilung;
 
     public String getPruefwerkzeuge() {
         return Pruefwerkzeuge;

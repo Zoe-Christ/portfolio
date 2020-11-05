@@ -7,33 +7,37 @@ import java.util.Date;
 @Entity
 @Table(name = "Kundenauftrag")
 public class Kundenauftrag implements Serializable {
-    @ManyToOne
-    @JoinColumn(name = "zahlung_RechnungsNr", nullable = false)
-    protected Zahlung Zahlung;
 
-    @Column(name = "Datum")
-    private Date datum;
-    @Column(name = "Gewicht")
-    private Double gewicht;
-    @Column(name = "Warenwert")
-    private Double warenwert;
-    @Column(name = "Bearbeitungsstatus")
-    private String bearbeitungsstatus;
-    @Column(name = "Lieferart")
-    private String lieferart;
     @Id
     @Column(name = "AuftragID", nullable = false)
     private Integer auftragID;
+
+    @Column(name = "Datum")
+    private Date datum;
+
+    @Column(name = "Gewicht")
+    private Double gewicht;
+
+    @Column(name = "Warenwert")
+    private Double warenwert;
+
+    @Column(name = "Bearbeitungsstatus")
+    private String bearbeitungsstatus;
+
+    @Column(name = "Lieferart")
+    private String lieferart;
 
     @ManyToOne
     @JoinColumn(name = "kunde_KundeID", nullable = false)
     protected Kunde kunde;
 
-
     @ManyToOne
     @JoinColumn(name = "lieferdienst_ID", nullable = false)
     protected Lieferdienst lieferdienst;
 
+    @ManyToOne
+    @JoinColumn(name = "zahlung_RechnungsNr", nullable = false)
+    protected Zahlung Zahlung;
 
     public Kundenauftrag() {
     }
