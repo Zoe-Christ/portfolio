@@ -1,10 +1,8 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "Fahrzeug")
@@ -12,9 +10,18 @@ public class Fahrzeug implements Serializable {
     @Id
     @Column(name = "Fahrzeug_ID", nullable = false)
     private Integer fahrzeugId;
+
     @Column(name = "Bezeichnung", nullable = false)
     private String bezeichnung;
 
+    @OneToMany(mappedBy = "fahrzeug")
+    private Set<Lieferdienst> lieferdienst;
+
+    @OneToMany(mappedBy = "fahrzeug")
+    private Set<Lieferung> lieferung;
+
+    @OneToMany(mappedBy = "fahrzeug")
+    private Set<Zulieferer> zulieferer;
 
     public Integer getFahrzeugId() {
         return fahrzeugId;

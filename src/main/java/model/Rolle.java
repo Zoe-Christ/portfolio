@@ -18,7 +18,6 @@ public class Rolle {
     @ManyToMany(mappedBy = "rolle")
     private Set<Mitarbeiter> mitarbeiter = new HashSet<>();
 
-
     public Integer getRollen_id() {
         return rollen_id;
     }

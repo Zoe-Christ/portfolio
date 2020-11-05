@@ -3,19 +3,17 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 
 @Entity
 @Table(name = "Produktion")
 public class Produktion implements Serializable{
 
-
-
     @Id
     @Column(name = "ProduktionID", nullable = false)
     protected Integer ProduktionID;
 
-    //Spaltenname ändern in Tabelle
     @Column(name = "Anz_Produktionsplaetze", nullable = false)
     protected Integer Anz_Produktionsplaetze;
 
@@ -38,10 +36,10 @@ public class Produktion implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "qm_abteilung_Kuerzel", nullable = false)
-    protected Qualitaetsmanagement QM;
+    protected Qualitaetsmanagement qm_kuerzel;
 
     @OneToMany(mappedBy="produktion")
-    private Set<maschine> maschine;
+    private Set<Maschine> maschine;
 
     public Integer getProduktionID() {
         return ProduktionID;
@@ -90,14 +88,5 @@ public class Produktion implements Serializable{
     public void setQM(Qualitaetsmanagement QM) {
         this.QM = QM;
     }
-
-    public Set<maschine> getMaschine() {
-        return maschine;
-    }
-
-    public void setMaschine(Set<maschine> maschine) {
-        this.maschine = maschine;
-    }
-
 
 }
