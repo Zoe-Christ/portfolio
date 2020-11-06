@@ -16,16 +16,16 @@ public class Teil implements Serializable {
     private Integer teilID;
 
     @Column(name = "Name")
-    public String Name;
+    public String name;
 
     @Column(name = "Funktion")
-    public String Funktion;
+    public String funktion;
 
     @Column(name = "Material")
-    public String Material;
+    public String material;
 
     @Column(name = "Preis")
-    public Double Preis;
+    public Double preis;
 
     @ManyToOne()
     @JoinColumn(name = "lager_LagerID", nullable = false)
@@ -58,34 +58,74 @@ public class Teil implements Serializable {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getFunktion() {
-        return Funktion;
+        return funktion;
     }
 
     public void setFunktion(String funktion) {
-        Funktion = funktion;
+        this.funktion = funktion;
     }
 
     public String getMaterial() {
-        return Material;
+        return material;
     }
 
     public void setMaterial(String material) {
-        Material = material;
+        this.material = material;
     }
 
     public Double getPreis() {
-        return Preis;
+        return preis;
     }
 
     public void setPreis(Double preis) {
-        Preis = preis;
+        this.preis = preis;
+    }
+
+    public Lager getLager() {
+        return lager;
+    }
+
+    public void setLager(Lager lager) {
+        this.lager = lager;
+    }
+
+    public Produkt getProdukt() {
+        return produkt;
+    }
+
+    public void setProdukt(Produkt produkt) {
+        this.produkt = produkt;
+    }
+
+    public Zulieferer getZulieferer() {
+        return zulieferer;
+    }
+
+    public void setZulieferer(Zulieferer zulieferer) {
+        this.zulieferer = zulieferer;
+    }
+
+    public Maschine getMaschine() {
+        return maschine;
+    }
+
+    public void setMaschine(Maschine maschine) {
+        this.maschine = maschine;
+    }
+
+    public Set<Bestellung> getBestellung() {
+        return bestellung;
+    }
+
+    public void setBestellung(Set<Bestellung> bestellung) {
+        this.bestellung = bestellung;
     }
 }

@@ -3,6 +3,8 @@ package model;
 import org.hibernate.mapping.Set;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table(name = "Maschine")
@@ -39,96 +41,91 @@ public class Maschine implements Serializable {
     @Column(name = "Groesse")
     public Double Groesse;
 
-    @Column(name = "produktion_ProduktionID")
-    public Integer produktion_ProduktionID;
+    @OneToMany(mappedBy="cart")
+    private Set<Teil> teil;
 
-    @Column(name = "produktion_lager_LagerID")
-    public Integer produktion_lager_LagerID;
-
-    @OneToMany(mappedBy = "Maschine")
-    private Set<Teil> T;
-
-    @ManyToOne (mappedBy = "Maschine")
-    private Set <Produktion> P;
-
-
+    @ManyToOne()
+    @JoinColumn(name="produktion_ProduktionID", nullable=false)
+    private Produktion produktion;
 
     public Integer getMaschineID() {
         return MaschineID;
     }
 
-    public void setMaschineID(Integer MaschineID) {
-        this.MaschineID = MaschineID;
+    public void setMaschineID(Integer maschineID) {
+        MaschineID = maschineID;
     }
 
     public String getName() {
         return Name;
     }
 
-    public void setName(String Name) {
-        Name = Name;
+    public void setName(String name) {
+        Name = name;
     }
 
     public String getAufgabe() {
         return Aufgabe;
     }
 
-    public void setAufgabe(String Aufgabe) {  Aufgabe = Aufgabe;    }
+    public void setAufgabe(String aufgabe) {
+        Aufgabe = aufgabe;
+    }
 
-    public Date Wartung() {
+    public Date getWartung() {
         return Wartung;
     }
 
-    public void setWartung(Date Wartung) {
-        Wartung = Wartung;
+    public void setWartung(Date wartung) {
+        Wartung = wartung;
     }
 
     public Double getWert() {
         return Wert;
     }
 
-    public void setWert(Double Wert) {
-        Wert = Wert;
+    public void setWert(Double wert) {
+        Wert = wert;
     }
 
     public Integer getMax_Produktion() {
         return Max_Produktion;
     }
 
-    public void setMax_Produktion(Integer Max_Produktion) {
-        Max_Produktion = Max_Produktion;
+    public void setMax_Produktion(Integer max_Produktion) {
+        Max_Produktion = max_Produktion;
     }
 
     public String getEinstellung() {
         return Einstellung;
     }
 
-    public void setEinstellung(String Einstellung) {  Einstellung = Einstellung;    }
+    public void setEinstellung(String einstellung) {
+        Einstellung = einstellung;
+    }
 
     public String getTUEV() {
         return TUEV;
     }
 
-    public void setTUEV(String TUEV) {  TUEV = TUEV;    }
-
-    public Double getGewicht() {  return Gewicht;    }
-
-    public void setGewicht(Double Gewicht) {  Gewicht = Gewicht; }
-
-    public Double getGewicht() {  return Gewicht;    }
-
-    public void setGewicht(Double Gewicht) {  Gewicht = Gewicht; }
-
-    public Set<Teil> getT() {
-        return T;
+    public void setTUEV(String TUEV) {
+        this.TUEV = TUEV;
     }
 
-    public void setT(Set<Teil> t) { T = t;}
-
-    public Set<Produktion> getP() {
-        return P;
+    public Double getGewicht() {
+        return Gewicht;
     }
 
-    public void setP(Set<Produktion> p) { P = p;}
+    public void setGewicht(Double gewicht) {
+        Gewicht = gewicht;
+    }
+
+    public Double getGroesse() {
+        return Groesse;
+    }
+
+    public void setGroesse(Double groesse) {
+        Groesse = groesse;
+    }
 
 }
