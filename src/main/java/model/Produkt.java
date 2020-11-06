@@ -2,7 +2,9 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Produkt")
@@ -82,6 +84,9 @@ public class Produkt implements Serializable {
 
     @OneToMany(mappedBy = "ProduktNr")
     private List<Teil> teilList;
+
+    @ManyToMany(mappedBy = "Online_haendler")
+    private Set<Online_haendler> online_haendler = new HashSet<>();
 
     public Produkt() {
 

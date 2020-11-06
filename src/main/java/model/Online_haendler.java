@@ -1,17 +1,15 @@
 package model;
 
 
-import org.hibernate.mapping.Set;
-
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Online_haendler")
 public class Online_haendler implements Serializable {
-    @ManyToOne
-    @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
-    protected Vertrag Vertrag;
+
     @Id
     @Column(name = "HaendlerID", nullable = false)
     private Integer haendlerID;
@@ -22,11 +20,18 @@ public class Online_haendler implements Serializable {
     @Column(name = "AnsprechPartner", nullable = false)
     private String ansprechPartner;
 
+    @ManyToOne
+    @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
+    protected Vertrag Vertrag;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "online_haendler_has_produkt",
+            joinColumns = {@JoinColumn(name = "online_Haendler_HaendlerID", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "produkt_ProduktNr")}
+    )
+    Set<Produkt> produkt = new HashSet<>();
     @OneToMany(mappedBy = "online_haendler")
-    private Set<Kundenauftrag> K;
-
-    @OneToMany(mappedBy="online_haendler")
-    private Set<online_haendler_has_product> P;
+    private Set<Kundenauftrag> kundenauftrag;
 
     public Integer getHaendlerID() {
         return haendlerID;
@@ -60,32 +65,28 @@ public class Online_haendler implements Serializable {
         this.ansprechPartner = ansprechPartner;
     }
 
-    public vertrag getVertrag() {
+    public Set<Kundenauftrag> getKundenauftrag() {
+        return kundenauftrag;
+    }
+
+    public void setKundenauftrag(Set<Kundenauftrag> kundenauftrags) {
+        this.kundenauftrag = kundenauftrags;
+    }
+
+
+    public Set<Produkt> getProdukt() {
+        return produkt;
+    }
+
+    public void setProdukt(Set<Produkt> produkt) {
+        this.produkt = produkt;
+    }
+
+    public model.Vertrag getVertrag() {
         return Vertrag;
     }
 
-    public void setVertrag(vertrag vertrag) {
+    public void setVertrag(model.Vertrag vertrag) {
         Vertrag = vertrag;
     }
-
-    public Set<Kundenauftrag> getK() {
-        return K;
-    }
-
-    public void setK(Set<Kundenauftrag> k) {
-        K = k;
-    }
-
-    public Set<online_haendler_has_product> getP() {
-        return P;
-    }
-
-    public void setP(Set<online_haendler_has_product> p) {
-        P = p;
-    }
-
-
-
-
-
 }
