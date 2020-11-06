@@ -29,7 +29,7 @@ public class Online_haendler implements Serializable {
             joinColumns = {@JoinColumn(name = "online_Haendler_HaendlerID", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "produkt_ProduktNr")}
     )
-    Set<Produkt> produkt = new HashSet<>();
+    protected Set<Produkt> produkt = new HashSet<>();
 
     @OneToMany(mappedBy = "online_haendler")
     private Set<Kundenauftrag> kundenauftrag;
@@ -90,4 +90,5 @@ public class Online_haendler implements Serializable {
     public void setVertrag(model.Vertrag vertrag) {
         Vertrag = vertrag;
     }
+
 }

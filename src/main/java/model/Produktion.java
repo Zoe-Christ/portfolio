@@ -12,23 +12,23 @@ public class Produktion implements Serializable{
 
     @Id
     @Column(name = "ProduktionID", nullable = false)
-    protected Integer ProduktionID;
+    protected Integer produktionID;
 
-    @Column(name = "Anz_Produktionsplaetze", nullable = false)
-    protected Integer Anz_Produktionsplaetze;
+    @Column(name = "Anz-Produktionsplaetze", nullable = false)
+    protected Integer anzProduktionsplaetze;
 
     @Column(name = "Kapazitaet", nullable = false)
-    protected Long Kapazitaet;
+    protected Long kapazitaet;
 
     @Column(name = "Zeit", nullable = false)
-    protected Date Zeit;
+    protected Date zeit;
 
     @Column(name = "Prod_Kosten", nullable = false)
-    protected Long Prod_Kosten;
+    protected Long prodKosten;
 
     @ManyToOne
     @JoinColumn(name = "lager_LagerID", nullable = false)
-    protected model.Lager Lager;
+    protected model.Lager lager;
 
     @ManyToOne
     @JoinColumn(name = "qm_QMID1", nullable = false)
@@ -42,43 +42,51 @@ public class Produktion implements Serializable{
     private Set<Maschine> maschine;
 
     public Integer getProduktionID() {
-        return ProduktionID;
+        return produktionID;
     }
 
     public void setProduktionID(Integer produktionID) {
-        ProduktionID = produktionID;
+        this.produktionID = produktionID;
+    }
+
+    public Integer getAnzProduktionsplaetze() {
+        return anzProduktionsplaetze;
+    }
+
+    public void setAnzProduktionsplaetze(Integer anzProduktionsplaetze) {
+        this.anzProduktionsplaetze = anzProduktionsplaetze;
     }
 
     public Long getKapazitaet() {
-        return Kapazitaet;
+        return kapazitaet;
     }
 
     public void setKapazitaet(Long kapazitaet) {
-        Kapazitaet = kapazitaet;
+        this.kapazitaet = kapazitaet;
     }
 
     public Date getZeit() {
-        return Zeit;
+        return zeit;
     }
 
     public void setZeit(Date zeit) {
-        Zeit = zeit;
+        this.zeit = zeit;
     }
 
-    public Long getProd_Kosten() {
-        return Prod_Kosten;
+    public Long getProdKosten() {
+        return prodKosten;
     }
 
-    public void setProd_Kosten(Long prod_Kosten) {
-        Prod_Kosten = prod_Kosten;
+    public void setProdKosten(Long prodKosten) {
+        this.prodKosten = prodKosten;
     }
 
     public model.Lager getLager() {
-        return Lager;
+        return lager;
     }
 
     public void setLager(model.Lager lager) {
-        Lager = lager;
+        this.lager = lager;
     }
 
     public Qualitaetsmanagement getQM() {
@@ -89,4 +97,19 @@ public class Produktion implements Serializable{
         this.QM = QM;
     }
 
+    public Qualitaetsmanagement getQm_kuerzel() {
+        return qm_kuerzel;
+    }
+
+    public void setQm_kuerzel(Qualitaetsmanagement qm_kuerzel) {
+        this.qm_kuerzel = qm_kuerzel;
+    }
+
+    public Set<Maschine> getMaschine() {
+        return maschine;
+    }
+
+    public void setMaschine(Set<Maschine> maschine) {
+        this.maschine = maschine;
+    }
 }

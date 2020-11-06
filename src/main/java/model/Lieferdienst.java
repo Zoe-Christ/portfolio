@@ -1,10 +1,9 @@
 package model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.mapping.Set;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -29,6 +28,15 @@ public class Lieferdienst implements Serializable {
 
     @Column(name = "Kapazitaet")
     private String kapazitaet;
+
+    @OneToMany(mappedBy = "Lieferdienst")
+    private Set<Kundenauftrag> KA;
+
+    @OneToMany(mappedBy = "Lieferdienst")
+    private Set<Kunde> K;
+
+    @OneToMany(mappedBy = "Lieferdienst")
+    private Set<Produkt> P;
 
     public Integer getId() {
         return id;

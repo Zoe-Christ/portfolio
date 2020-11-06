@@ -3,6 +3,7 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -35,7 +36,7 @@ public class Zulieferer implements Serializable {
     @JoinColumn(name = "fahrzeug_Fahrzeug_ID")
     protected Fahrzeug fahrzeug;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
     protected Vertrag vertrag;
 

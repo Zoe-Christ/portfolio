@@ -82,6 +82,14 @@ public class Zahlung implements Serializable {
     public void setFaelligkeitsDatum(Date faelligkeitsDatum) {
         FaelligkeitsDatum = faelligkeitsDatum;
     }
+
+    public Kundenauftrag getKundenauftrag() {
+        return kundenauftrag;
+    }
+
+    public void setKundenauftrag(Kundenauftrag kundenauftrag) {
+        this.kundenauftrag = kundenauftrag;
+    }
 }
 
 

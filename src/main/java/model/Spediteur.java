@@ -6,94 +6,87 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Spediteur")
 public class Spediteur implements Serializable {
-    private Integer Spediteur_ID;
 
     @Id
     @Column(name = "SpediteurID", nullable = false)
-    protected Integer SpediteurID;
+    protected Integer spediteurID;
 
     @Column(name = "Name")
-    protected String Name;
+    protected String name;
 
     @Column(name = "Zul_Gewicht")
-    protected Double Zul_Gewicht;
+    protected Double zul_Gewicht;
 
     @Column(name = "Liefertreue")
-    protected String Liefertreue;
+    protected String liefertreue;
 
     @Column(name = "HandelsregisterNr")
-    protected String HandelsregisterNr;
+    protected String handelsregisterNr;
 
     @Column(name = "Ansprechpartner")
-    protected String Ansprechpartner;
+    protected String ansprechpartner;
 
     @Column(name = "Tel")
-    protected Integer Tel;
+    protected Integer tel;
 
     @ManyToOne
     @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
-    protected vertrag vertrag_Vertrag_ID;
+    protected Vertrag vertrag;
 
-
-
-
-
-    public Integer getSpediteur_ID() {
-        return Spediteur_ID;
+    public Integer getSpediteurID() {
+        return spediteurID;
     }
 
-    public void setSpediteur_ID(Integer id) {
-        this.Spediteur_ID = id;
+    public void setSpediteurID(Integer id) {
+        this.spediteurID = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Double getZul_Gewicht() {
-        return Zul_Gewicht;
+        return zul_Gewicht;
     }
 
     public void setZul_Gewicht(Double Zul_Gewicht) {
-        Zul_Gewicht = Zul_Gewicht;
+        this.zul_Gewicht = Zul_Gewicht;
     }
 
     public String getLiefertreue() {
-        return Liefertreue;
+        return liefertreue;
     }
 
-    public void setLiefertreue(String Liefertreue) {
-        Liefertreue = Liefertreue;
-    }
+    public void setLiefertreue(String liefertreue) { this.liefertreue = liefertreue; }
 
     public String getHandelsregisterNr() {
-        return HandelsregisterNr;
+        return handelsregisterNr;
     }
 
-    public void setHandelsregisterNr(String HandelsregisterNr) {
-        HandelsregisterNr = HandelsregisterNr;
+    public void setHandelsregisterNr(String handelsregisterNr) {
+        this.handelsregisterNr = handelsregisterNr;
     }
 
     public String getAnsprechpartner() {
-        return Ansprechpartner;
+        return ansprechpartner;
     }
 
-    public void setAnsprechpartner(String Ansprechpartner) {
-        Ansprechpartner = Ansprechpartner;
+    public void setAnsprechpartner(String ansprechpartner) {
+        this.ansprechpartner = ansprechpartner;
     }
 
     public Integer getTel() {
-        return Tel;
+        return tel;
     }
 
-    public void setTel(Integer Tel) {  Tel = Tel; }
+    public void setTel(Integer Tel) {  this.tel = tel; }
 
-    public vertrag getVertrag_Vertrag_ID() { return vertrag; }
+    public Vertrag getVertrag() { return vertrag; }
 
-    public void setVertrag_Vertrag_ID(vertrag vertrag) { vertrag = vertrag;  }
+    public void setVertrag(Vertrag vertrag) { this.vertrag = vertrag;  }
 
 }
