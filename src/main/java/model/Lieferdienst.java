@@ -85,4 +85,28 @@ public class Lieferdienst implements Serializable {
     public void setKapazitaet(String kapazitaet) {
         this.kapazitaet = kapazitaet;
     }
+
+    public Set<Kundenauftrag> getKundenauftrag() {
+        return KA;
+    }
+
+    public void setKundenauftrag(Set<Kundenauftrag> KA) {
+        this.KA = KA;
+    }
+
+    public Set<Kunde> getKunde() {
+        return K;
+    }
+
+    public void setKunde(Set<Kunde> K) {
+        this.K = K;
+    }
+
+    public Set<Produkt> getProdukt() {
+        return P;
+    }
+
+    public void setProdukt(Set<Produkt> P) {
+        this.P = P;
+    }
 }
