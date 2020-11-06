@@ -11,7 +11,7 @@ import java.util.List;
 
 public abstract class GenericRepository<T, ID extends Serializable> {
 
-    protected EntityManager em = ConnectionHelper.getConnection();
+    protected EntityManager em = (EntityManager) ConnectionHelper.getConnection("portfolio");
 
     protected final Class<T> entityClass;
 
@@ -95,7 +95,7 @@ public abstract class GenericRepository<T, ID extends Serializable> {
 
     public void reconnectToDatabase() {
         if ( em == null || !em.isOpen() ) {
-            em = ConnectionHelper.getConnection();
+            em = (EntityManager) ConnectionHelper.getConnection("portfolio");
         }
     }
 

@@ -15,8 +15,8 @@ public class Demo {
     }**/
 
     public static void main( String[] args ) throws IllegalAccessException, SQLException {
-        ConnectionHelper c = new ConnectionHelper();
-        Connection con = c.getConnection("portfolio");
+        //ConnectionHelper c = new ConnectionHelper();
+        Connection con = ConnectionHelper.getConnection("portfolio");
         Statement stmt;
 
         /*Inner Join: zeigt Name des Lieferdienst mit dazugehöriger Vertragslaufzeit*/
@@ -86,8 +86,9 @@ public class Demo {
         stmt.close();
 
         /*Zeigt alle Produkte in einem Kundenauftrag, die häufiger als einmal bestellt wurden.*/
+        /*
         stmt = con.createStatement();
-        try ( ResultSet rs = stmt.executeQuery( "SELECT Name, ProduktNr from portfolio.Produkt WHERE ProduktNr IN (SELECT Produkt_ProduktNr from portfolio.Kundenauftrag_has_produkt where stueckzahl > 1)" ) ) {
+        try ( ResultSet rs = stmt.executeQuery( "SELECT Name, ProduktNr from Produkt WHERE ProduktNr IN (SELECT Produkt_ProduktNr from Kundenauftrag where stueckzahl > 1)" ) ) {
             while ( rs.next() ) {
                 System.out.printf(""+rs.getString( 1 ), rs.getInt( 2 ));
             }
@@ -96,11 +97,11 @@ public class Demo {
             System.err.println( "Error during Demo!" );
             e.printStackTrace();
         }
-        stmt.close();
+        stmt.close(); */
 
         /*Zeigt zugestellte Bestellungen mit Warenwert zwischen 400 und 1000 € sortiert nach absteigendem Warenwert.*/
         stmt = con.createStatement();
-        try ( ResultSet rs = stmt.executeQuery( "Select Warenwert FROM Bestellung WHERE Bearbeitungsstatus = \"zugestellt\" OR Warenwert BETWEEN 400 AND 1000 ORDER BY Warenwert DESC" ) ) {
+        try ( ResultSet rs = stmt.executeQuery( "Select Warenwert FROM Bestellung WHERE Bearbeitungsstatus = 'zugestellt' OR Warenwert BETWEEN 400 AND 1000 ORDER BY Warenwert DESC" ) ) {
             while ( rs.next() ) {
                 System.out.printf(""+rs.getInt( 1 ));
             }
