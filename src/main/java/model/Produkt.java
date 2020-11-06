@@ -3,7 +3,6 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -83,7 +82,7 @@ public class Produkt implements Serializable {
     }
 
     @OneToMany(mappedBy = "ProduktNr")
-    private List<Teil> teilList;
+    private Set<Teil> teilList;
 
     @ManyToMany(mappedBy = "Online_haendler")
     private Set<Online_haendler> online_haendler = new HashSet<>();
@@ -95,13 +94,6 @@ public class Produkt implements Serializable {
 
     }
 
-    public List<Teil> getTeilList() {
-        return teilList;
-    }
-
-    public void setTeilList(List<Teil> teilList) {
-        this.teilList = teilList;
-    }
 
     public Set<Online_haendler> getOnline_haendler() {
         return online_haendler;
@@ -117,5 +109,13 @@ public class Produkt implements Serializable {
 
     public void setFiliale(Set<Filiale> filiale) {
         this.filiale = filiale;
+    }
+
+    public Set<Teil> getTeilList() {
+        return teilList;
+    }
+
+    public void setTeilList(Set<Teil> teilList) {
+        this.teilList = teilList;
     }
 }

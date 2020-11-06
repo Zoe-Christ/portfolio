@@ -27,13 +27,13 @@ public class Lager implements Serializable {
     @JoinColumn(name = "adresse_AdressID", nullable = false)
     protected Adresse Adresse;
 
-    @OneToMany(mappedBy = "Lager")
+    @OneToMany(mappedBy = "lager")
     private Set<Teil> teil;
 
     @OneToMany(mappedBy = "lager")
     private Set<Produktion> produktion;
 
-    @OneToMany(mappedBy = "Lager")
+    @OneToMany(mappedBy = "lager")
     private Set<Lieferung> lieferung;
     
 

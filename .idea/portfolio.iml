@@ -4,7 +4,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="META_INF:hibernate.cfg.xml" value="95d22dec-38eb-43aa-b7fa-c4ddc61ca3ca" />
+          <unit-entry name="META_INF:hibernate.cfg.xml" value="94a3e32d-c13c-4dfd-81be-d383d7b32aba" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/META_INF/hibernate.cfg.xml" />
@@ -17,7 +17,7 @@
         <datasource-mapping>
           <factory-entry name="Entities" value="0d264f05-8402-496d-867b-f1fcfdd6a8f9" />
           <factory-entry name="ORMExamplePU" value="cfded528-3606-423a-9e25-c3a70dbdf612" />
-          <factory-entry name="portfolio" value="95d22dec-38eb-43aa-b7fa-c4ddc61ca3ca" />
+          <factory-entry name="portfolio" value="94a3e32d-c13c-4dfd-81be-d383d7b32aba" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

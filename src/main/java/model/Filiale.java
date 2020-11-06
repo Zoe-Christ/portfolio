@@ -1,9 +1,10 @@
 package model;
 
-import org.hibernate.mapping.Set;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "Filiale")
@@ -36,8 +37,6 @@ public class Filiale implements Serializable {
 
     @OneToMany(mappedBy="Filiale")
     private Set<Lieferung> lieferung;
-
-
 
 
     public Integer getFilialeID() {
@@ -88,21 +87,6 @@ public class Filiale implements Serializable {
         this.adresse_AdressID = adresse_AdressID;
     }
 
-    public Set<Produkt> getP() {
-        return produkt;
-    }
-
-    public void setP(Set<Produkt> p) {
-        produkt = p;
-    }
-
-    public Set<Lieferung> getL() {
-        return lieferung;
-    }
-
-    public void setL(Set<Lieferung> l) {
-        lieferung = l;
-    }
 
 
 

@@ -30,7 +30,7 @@ public class Mitarbeiter implements Serializable {
 
 
     @ManyToOne
-    @JoinColumns({@JoinColumn(name = "filiale_FilialeID", nullable = false), @JoinColumn(name = "filiale_adresse_AdressID", nullable = false)})
+    @JoinColumn(name = "filiale_FilialeID", nullable = false)
     protected Filiale filiale;
 
     @ManyToMany(cascade = {CascadeType.ALL})
