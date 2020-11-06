@@ -3,6 +3,8 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Kundenauftrag")
@@ -32,12 +34,24 @@ public class Kundenauftrag implements Serializable {
     protected Kunde kunde;
 
     @ManyToOne
+    @JoinColumn(name = "online_haendler_HaendlerID1", nullable = false)
+    protected Online_haendler online_haendler;
+
+    @ManyToOne
     @JoinColumn(name = "lieferdienst_ID", nullable = false)
     protected Lieferdienst lieferdienst;
 
     @ManyToOne
     @JoinColumn(name = "zahlung_RechnungsNr", nullable = false)
     protected Zahlung Zahlung;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "Kundenauftrag_has_Produkt",
+            joinColumns = {@JoinColumn(name = "kundenauftrag_AuftragID"), @JoinColumn(name = "kundenauftrag_zahlung_RechnungsNr")},
+            inverseJoinColumns = {@JoinColumn(name = "produkt_ProduktNr")}
+    )
+    Set<Adresse> projects = new HashSet<>();
 
     public Kundenauftrag() {
     }

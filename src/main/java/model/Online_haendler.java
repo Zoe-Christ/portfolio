@@ -30,6 +30,7 @@ public class Online_haendler implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "produkt_ProduktNr")}
     )
     Set<Produkt> produkt = new HashSet<>();
+
     @OneToMany(mappedBy = "online_haendler")
     private Set<Kundenauftrag> kundenauftrag;
 

@@ -21,14 +21,6 @@ public class Adresse implements Serializable {
     @JoinColumn(name = "plz_PLZ")
     private Plz plz;
 
-    @OneToOne
-    @JoinColumn(name = "adresse_AdressID")
-    protected Filiale filiale;
-
-    @OneToOne
-    @JoinColumn(name = "adresse_AdressID")
-    protected Lager lager;
-
     @ManyToMany(mappedBy = "Adresse")
     private Set<Kunde> kunden = new HashSet<>();
 

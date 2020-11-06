@@ -88,6 +88,9 @@ public class Produkt implements Serializable {
     @ManyToMany(mappedBy = "Online_haendler")
     private Set<Online_haendler> online_haendler = new HashSet<>();
 
+    @ManyToMany(mappedBy = "Filiale")
+    private Set<Filiale> filiale = new HashSet<>();
+
     public Produkt() {
 
     }

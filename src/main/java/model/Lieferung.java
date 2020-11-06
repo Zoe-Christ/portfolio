@@ -7,12 +7,16 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Lieferung")
 public class Lieferung implements Serializable {
+    @Id
+    @Column(name = "LieferungID", nullable = false)
+    private Integer lieferungID;
     @Column(name = "Abfahrt")
     public String abfahrt;
     @Column(name = "Liefertermin")
     public Double liefertermin;
     @Column(name = "Gewicht")
     public Double gewicht;
+
     @ManyToOne
     @JoinColumn(name = "lager_LagerID")
     protected Lager lager;
@@ -31,9 +35,6 @@ public class Lieferung implements Serializable {
     @ManyToOne
     @JoinColumn(name = "fahrzeug_Fahrzeug_ID")
     protected Fahrzeug fahrzeug;
-    @Id
-    @Column(name = "LieferungID", nullable = false)
-    private Integer lieferungID;
 
 
     public Lieferung() {

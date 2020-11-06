@@ -3,9 +3,11 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "Mitarbeiter")
+@Table(name = "mitarbeiter")
 public class Mitarbeiter implements Serializable {
     @Id
     @Column(name = "MitarbeiterID", nullable = false)
@@ -28,12 +30,24 @@ public class Mitarbeiter implements Serializable {
 
 
     @ManyToOne
-    @JoinColumn(name = "filiale_FilialeID", nullable = false)
+    @JoinColumns({@JoinColumn(name = "filiale_FilialeID", nullable = false), @JoinColumn(name = "filiale_adresse_AdressID", nullable = false)})
     protected Filiale filiale;
 
-    @ManyToMany
-    @JoinColumn(name = "adresse_AdressID", nullable = false)
-    protected Adresse Adresse;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "mitarbeiter_has_Adresse",
+            joinColumns = {@JoinColumn(name = "mitarbeiter_MitarbeiterID")},
+            inverseJoinColumns = {@JoinColumn(name = "adresse_AdressID")}
+    )
+    Set<Adresse> projects = new HashSet<>();
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "mitarbeiter_has_Rolle",
+            joinColumns = {@JoinColumn(name = "mitarbeiter_MitarbeiterID")},
+            inverseJoinColumns = {@JoinColumn(name = "rolle_Rollen_ID")}
+    )
+    Set<Rolle> rolle = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "abteilung_Kuerzel1", nullable = false)
@@ -98,14 +112,6 @@ public class Mitarbeiter implements Serializable {
 
     public void setFiliale(Filiale filiale) {
         this.filiale = filiale;
-    }
-
-    public model.Adresse getAdresse() {
-        return Adresse;
-    }
-
-    public void setAdresse(model.Adresse adresse) {
-        Adresse = adresse;
     }
 
     public Abteilung getAbteilung() {

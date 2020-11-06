@@ -1,9 +1,9 @@
 package model;
 
-import org.hibernate.mapping.Set;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
@@ -23,18 +23,18 @@ public class Lager implements Serializable {
     @Column(name = "Lagerart", nullable = false)
     private String lagerart;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "adresse_AdressID", nullable = false)
     protected Adresse Adresse;
 
     @OneToMany(mappedBy = "Lager")
-    private Set Teil;
+    private Set<Teil> teil;
 
     @OneToMany(mappedBy = "Lager")
-    private Set Lager;
+    private Set<Produktion> produktion;
 
     @OneToMany(mappedBy = "Lager")
-    private Set Lieferung;
+    private Set<Lieferung> lieferung;
     
 
     public String getMietkosten() {

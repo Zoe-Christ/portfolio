@@ -29,6 +29,9 @@ public class Kunde implements Serializable {
     )
     Set<Adresse> projects = new HashSet<>();
 
+    @OneToMany(mappedBy = "kunde")
+    private Set<Kundenauftrag> kundenauftrag;
+
     public Kunde() {
     }
 

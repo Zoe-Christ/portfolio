@@ -2,6 +2,8 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "filiale")
@@ -18,8 +20,17 @@ public class Filiale implements Serializable {
         this.filialeID = filialeID;
     }
 
-    @OneToOne(mappedBy = "Adresse")
-    private Adresse adresse;
+    @OneToOne
+    @JoinColumn(name = "adresse_AdressID", nullable = false)
+    protected Adresse Adresse;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "Filiale_has_Produkt",
+            joinColumns = {@JoinColumn(name = "FilialeID")},
+            inverseJoinColumns = {@JoinColumn(name = "produkt_ProduktNr")}
+    )
+    Set<Produkt> produkt = new HashSet<>();
 
     public Filiale() {
     }
