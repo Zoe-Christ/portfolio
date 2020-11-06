@@ -4,6 +4,7 @@
     <persistence-unit name="ORMExamplePU">
         <class>model.Lager</class>
         <class>model.Produktion</class>
+        <!-- Alle Entities einfügen -->
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
