@@ -3,6 +3,8 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -34,14 +36,18 @@ public class Teil implements Serializable {
     private Produkt produkt;
 
     @ManyToOne
-    @JoinColumn(name="zulieferer_ZuliefererID", nullable=false)
+    @JoinColumn(name = "zulieferer_ZuliefererID", nullable = false)
     private Zulieferer zulieferer;
 
     @ManyToOne
-    @JoinColumn(name="maschine_MaschineID", nullable=false)
+    @JoinColumn(name = "maschine_MaschineID", nullable = false)
     private Maschine maschine;
 
-    public Teil() {}
+    @ManyToMany(mappedBy = "teil")
+    private Set<Bestellung> bestellung = new HashSet<>();
+
+    public Teil() {
+    }
 
     public Integer getTeilID() {
         return teilID;

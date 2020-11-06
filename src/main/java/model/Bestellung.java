@@ -3,6 +3,8 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Bestellung")
@@ -18,6 +20,14 @@ public class Bestellung implements Serializable {
     private Double warenwert;
     @Column(name = "Bearbeitungsstatus")
     private String bearbeitungsstatus;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "Bestellung_has_Teil",
+            joinColumns = {@JoinColumn(name = "bestellung_bestellungid")},
+            inverseJoinColumns = {@JoinColumn(name = "teil_teilid")}
+    )
+    Set<Teil> teil = new HashSet<>();
 
     @ManyToOne()
     @JoinColumns({

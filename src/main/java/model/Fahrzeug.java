@@ -23,6 +23,9 @@ public class Fahrzeug implements Serializable {
     @OneToMany(mappedBy = "fahrzeug")
     private Set<Zulieferer> zulieferer;
 
+    public Fahrzeug() {
+    }
+
     public Integer getFahrzeugId() {
         return fahrzeugId;
     }
