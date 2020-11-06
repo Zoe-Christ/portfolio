@@ -12,7 +12,7 @@ public class ConnectionHelper {
     private static String DEFAULTSCHEMA = "portfolio";
     private static String TIMEZONEPROPERTY = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
-    private ConnectionHelper() throws IllegalAccessException {
+    public ConnectionHelper() throws IllegalAccessException {
         throw new IllegalAccessException();
     }
 

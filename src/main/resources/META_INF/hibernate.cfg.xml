@@ -20,9 +20,9 @@
 
         <!-- Mapping With Model Class Containing Annotations -->
         <mapping class="model.Lager"/>
-        <mapping class="model.online_haendler" />
-        <mapping class="model.online_haendler_has_Product" />
-        <mapping class="model.produktion" />
+        <mapping class="model.Online_haendler" />
+        <mapping class="model.Adresse" />
+        <mapping class="model.Produktion" />
         <mapping class="model.Zulieferer"/>
         <mapping class="model.Abteilung" />
     </session-factory>
