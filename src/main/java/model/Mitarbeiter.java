@@ -121,5 +121,21 @@ public class Mitarbeiter implements Serializable {
     public void setAbteilung(Abteilung abteilung) {
         this.abteilung = abteilung;
     }
+
+    public Set<Adresse> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Adresse> projects) {
+        this.projects = projects;
+    }
+
+    public Set<Rolle> getRolle() {
+        return rolle;
+    }
+
+    public void setRolle(Set<Rolle> rolle) {
+        this.rolle = rolle;
+    }
 }
 

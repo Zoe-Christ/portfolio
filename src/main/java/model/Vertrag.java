@@ -34,4 +34,36 @@ public class Vertrag implements Serializable {
     public String getLaufzeit() { return laufzeit; }
 
     public void setLaufzeit(String laufzeit) { this.laufzeit = laufzeit; }
+
+    public Set<Online_haendler> getOnline_haendler() {
+        return online_haendler;
+    }
+
+    public void setOnline_haendler(Set<Online_haendler> online_haendler) {
+        this.online_haendler = online_haendler;
+    }
+
+    public Set<Lieferdienst> getLieferdienst() {
+        return lieferdienst;
+    }
+
+    public void setLieferdienst(Set<Lieferdienst> lieferdienst) {
+        this.lieferdienst = lieferdienst;
+    }
+
+    public Set<Spediteur> getSpediteur() {
+        return spediteur;
+    }
+
+    public void setSpediteur(Set<Spediteur> spediteur) {
+        this.spediteur = spediteur;
+    }
+
+    public Set<Zulieferer> getZulieferer() {
+        return zulieferer;
+    }
+
+    public void setZulieferer(Set<Zulieferer> zulieferer) {
+        this.zulieferer = zulieferer;
+    }
 }

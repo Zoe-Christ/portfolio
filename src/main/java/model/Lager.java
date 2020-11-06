@@ -30,7 +30,7 @@ public class Lager implements Serializable {
     @OneToMany(mappedBy = "Lager")
     private Set<Teil> teil;
 
-    @OneToMany(mappedBy = "Lager")
+    @OneToMany(mappedBy = "lager")
     private Set<Produktion> produktion;
 
     @OneToMany(mappedBy = "Lager")

@@ -2,7 +2,6 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name = "Spediteur")
@@ -10,39 +9,36 @@ public class Spediteur implements Serializable {
 
     @Id
     @Column(name = "SpediteurID", nullable = false)
-    private Integer spediteurID;
+    protected Integer spediteurID;
 
-    @Column(name = "Name", nullable = false)
-    private String name;
+    @Column(name = "Name")
+    protected String name;
 
-    @Column(name = "Zul_Gewicht", nullable = false)
-    private double zul_Gewicht;
+    @Column(name = "Zul_Gewicht")
+    protected Double zul_Gewicht;
 
-    @Column(name = "Liefertreue", nullable = false)
-    private String liefertreue;
+    @Column(name = "Liefertreue")
+    protected String liefertreue;
 
-    @Column(name = "HandelsregisterNr", nullable = false)
-    private String handelsregisterNr;
+    @Column(name = "HandelsregisterNr")
+    protected String handelsregisterNr;
 
-    @Column(name = "Ansprechpartner", nullable = false)
-    private String ansprechpartner;
+    @Column(name = "Ansprechpartner")
+    protected String ansprechpartner;
 
-    @Column(name = "Name", nullable = false)
-    private Integer tel;
+    @Column(name = "Tel")
+    protected Integer tel;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "vertrag_Vertrag_ID", nullable = false)
     protected Vertrag vertrag;
-
-    @OneToMany(mappedBy = "spediteur")
-    private Set<Lieferung> lieferung;
 
     public Integer getSpediteurID() {
         return spediteurID;
     }
 
-    public void setSpediteurID(Integer spediteurID) {
-        this.spediteurID = spediteurID;
+    public void setSpediteurID(Integer id) {
+        this.spediteurID = id;
     }
 
     public String getName() {
@@ -53,21 +49,19 @@ public class Spediteur implements Serializable {
         this.name = name;
     }
 
-    public double getZul_Gewicht() {
+    public Double getZul_Gewicht() {
         return zul_Gewicht;
     }
 
-    public void setZul_Gewicht(double zul_Gewicht) {
-        this.zul_Gewicht = zul_Gewicht;
+    public void setZul_Gewicht(Double Zul_Gewicht) {
+        this.zul_Gewicht = Zul_Gewicht;
     }
 
     public String getLiefertreue() {
         return liefertreue;
     }
 
-    public void setLiefertreue(String liefertreue) {
-        this.liefertreue = liefertreue;
-    }
+    public void setLiefertreue(String liefertreue) { this.liefertreue = liefertreue; }
 
     public String getHandelsregisterNr() {
         return handelsregisterNr;
@@ -89,7 +83,10 @@ public class Spediteur implements Serializable {
         return tel;
     }
 
-    public void setTel(Integer tel) {
-        this.tel = tel;
-    }
+    public void setTel(Integer Tel) {  this.tel = tel; }
+
+    public Vertrag getVertrag() { return vertrag; }
+
+    public void setVertrag(Vertrag vertrag) { this.vertrag = vertrag;  }
+
 }

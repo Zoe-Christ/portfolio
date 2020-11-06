@@ -33,7 +33,7 @@ public class Plz implements Serializable {
         this.stadt = stadt;
     }
 
-    @OneToOne(mappedBy = "PLZ")
+    @OneToOne(mappedBy = "Plz")
     private Plz plz;
 
     public Plz getPlz() {

@@ -33,4 +33,12 @@ public class Rolle {
     public void setBezeichnung(String bezeichnung) {
         this.bezeichnung = bezeichnung;
     }
+
+    public Set<Mitarbeiter> getMitarbeiter() {
+        return mitarbeiter;
+    }
+
+    public void setMitarbeiter(Set<Mitarbeiter> mitarbeiter) {
+        this.mitarbeiter = mitarbeiter;
+    }
 }

@@ -95,4 +95,27 @@ public class Produkt implements Serializable {
 
     }
 
+    public List<Teil> getTeilList() {
+        return teilList;
+    }
+
+    public void setTeilList(List<Teil> teilList) {
+        this.teilList = teilList;
+    }
+
+    public Set<Online_haendler> getOnline_haendler() {
+        return online_haendler;
+    }
+
+    public void setOnline_haendler(Set<Online_haendler> online_haendler) {
+        this.online_haendler = online_haendler;
+    }
+
+    public Set<Filiale> getFiliale() {
+        return filiale;
+    }
+
+    public void setFiliale(Set<Filiale> filiale) {
+        this.filiale = filiale;
+    }
 }

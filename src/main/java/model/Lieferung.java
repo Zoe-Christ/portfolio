@@ -20,18 +20,23 @@ public class Lieferung implements Serializable {
     @ManyToOne
     @JoinColumn(name = "lager_LagerID")
     protected Lager lager;
+
     @ManyToOne
     @JoinColumn(name = "lager_Adresse_AdressID")
-    protected Adresse Lager_Adresse;
+    protected Adresse lagerAdresse;
+
     @ManyToOne
     @JoinColumn(name = "spediteur_SpediteurID")
     protected Spediteur spediteur;
+
     @ManyToOne
     @JoinColumn(name = "filiale_FilialeID")
     protected Filiale filiale;
+
     @ManyToOne
     @JoinColumn(name = "filiale_adresse_AdressID")
-    protected Adresse Filiale_adresse;
+    protected Adresse filialeAdresse;
+
     @ManyToOne
     @JoinColumn(name = "fahrzeug_Fahrzeug_ID")
     protected Fahrzeug fahrzeug;
@@ -80,12 +85,12 @@ public class Lieferung implements Serializable {
         this.lager = lager;
     }
 
-    public Adresse getLager_Adresse() {
-        return Lager_Adresse;
+    public Adresse getLagerAdresse() {
+        return lagerAdresse;
     }
 
-    public void setLager_Adresse(Adresse lager_Adresse) {
-        Lager_Adresse = lager_Adresse;
+    public void setLagerAdresse(Adresse lagerAdresse) {
+        this.lagerAdresse = lagerAdresse;
     }
 
     public Spediteur getSpediteur() {
@@ -104,12 +109,12 @@ public class Lieferung implements Serializable {
         this.filiale = filiale;
     }
 
-    public Adresse getFiliale_adresse() {
-        return Filiale_adresse;
+    public Adresse getFilialeAdresse() {
+        return filialeAdresse;
     }
 
-    public void setFiliale_adresse(Adresse filiale_adresse) {
-        Filiale_adresse = filiale_adresse;
+    public void setFilialeAdresse(Adresse filialeAdresse) {
+        this.filialeAdresse = filialeAdresse;
     }
 
     public Fahrzeug getFahrzeug() {

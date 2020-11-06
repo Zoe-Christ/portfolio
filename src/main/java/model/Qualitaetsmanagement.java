@@ -9,9 +9,6 @@ import java.util.Set;
 @Entity
 @Table(name = "qm")
 public class Qualitaetsmanagement implements Serializable {
-    public void setQMID(Integer qmid) {
-        this.QMID = qmid;
-    }
 
     @Id
     @Column(name = "QMID", nullable = false)
@@ -72,5 +69,33 @@ public class Qualitaetsmanagement implements Serializable {
 
     public void setPruefbereich(String pruefbereich) {
         Pruefbereich = pruefbereich;
+    }
+
+    public void setQMID(Integer QMID) {
+        this.QMID = QMID;
+    }
+
+    public Set<Produkt> getProdukt() {
+        return produkt;
+    }
+
+    public void setProdukt(Set<Produkt> produkt) {
+        this.produkt = produkt;
+    }
+
+    public Set<Produktion> getProduktion() {
+        return produktion;
+    }
+
+    public void setProduktion(Set<Produktion> produktion) {
+        this.produktion = produktion;
+    }
+
+    public Set<Abteilung> getAbteilung() {
+        return abteilung;
+    }
+
+    public void setAbteilung(Set<Abteilung> abteilung) {
+        this.abteilung = abteilung;
     }
 }
