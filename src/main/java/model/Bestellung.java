@@ -21,12 +21,17 @@ public class Bestellung implements Serializable {
 
     @ManyToOne()
     @JoinColumns({
-            @JoinColumn(name = "einkauf_EinkaufID", referencedColumnName = "EinkaufID", nullable = false), @JoinColumn(name = "einkauf_Abteilung_Kuerzel", referencedColumnName = "Abteilung_Kuerzel", nullable = false)})
+            @JoinColumn(name = "einkauf_EinkaufID", referencedColumnName = "EinkaufID", nullable = false),
+            @JoinColumn(name = "einkauf_Abteilung_Kuerzel", referencedColumnName = "Abteilung_Kuerzel", nullable = false)
+    })
     private Einkauf einkauf;
 
     @ManyToOne()
     @JoinColumn(name = "zulieferer_ZuliefererID", nullable = false)
     private Zulieferer zulieferer;
+
+    public Bestellung() {
+    }
 
     public Integer getBestellungID() {
         return bestellungID;

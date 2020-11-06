@@ -1,9 +1,9 @@
 package model;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
+
 
 @Entity
 @Table(name = "Abteilung")
@@ -20,10 +20,17 @@ public class Abteilung implements Serializable {
     @Column(name = "Kostenstelle")
     private Integer kostenstelle;
 
+    @ManyToOne
+    @JoinColumn(name = "Kuerzel")
+    private Einkauf einkauf;
+
+    @ManyToOne
+    @JoinColumn(name = "Kuerzel")
+    private Qualitaetsmanagement qualitaetsmanagement;
 
     @OneToMany(mappedBy = "Abteilung")
-    @JoinColumn(name = "abteilung_Kuerzel1")
     private Set<Mitarbeiter> mitarbeiter;
+
 
     public Set getMitarbeiter() {
         return mitarbeiter;

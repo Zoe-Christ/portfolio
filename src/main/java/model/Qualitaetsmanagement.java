@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "qm")
-public class Qualitaetsmanagement extends Abteilung implements Serializable {
+public class Qualitaetsmanagement implements Serializable {
     public void setQMID(Integer qmid) {
         this.QMID = qmid;
     }
@@ -30,7 +30,7 @@ public class Qualitaetsmanagement extends Abteilung implements Serializable {
     @Column(name= "Norm")
     private String Norm;
 
-    @Column(name= "Pruefbereich")
+    @Column(name = "Pruefbereich")
     private String Pruefbereich;
 
     @OneToMany(mappedBy = "qm")
@@ -39,9 +39,8 @@ public class Qualitaetsmanagement extends Abteilung implements Serializable {
     @OneToMany(mappedBy = "qm")
     private Set<Produktion> produktion;
 
-    @ManyToOne()
-    @JoinColumn(name = "abteilung_Kuerzel", nullable = false)
-    protected Abteilung abteilung;
+    @OneToMany(mappedBy = "qm")
+    private Set<Abteilung> abteilung;
 
     public String getPruefwerkzeuge() {
         return Pruefwerkzeuge;

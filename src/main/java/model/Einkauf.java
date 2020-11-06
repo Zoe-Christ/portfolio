@@ -1,10 +1,8 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "Einkauf")
@@ -20,6 +18,15 @@ public class Einkauf implements Serializable {
     protected Double bestandswert;
     @Column(name = "Budget")
     private Double budget;
+
+    @OneToMany(mappedBy = "Einkauf")
+    private Set<Abteilung> abteilung;
+
+    @OneToMany(mappedBy = "Einkauf")
+    private Set<Bestellung> bestellung;
+
+    public Einkauf() {
+    }
 
     public Integer getEinkaufID() {
         return einkaufID;
