@@ -32,10 +32,12 @@ public class Filiale implements Serializable {
 
 
     @OneToMany(mappedBy = "Filiale")
-    private Set <Produkt> P;
+    private Set<Produkt> produkt;
 
     @OneToMany(mappedBy="Filiale")
-    private Set <Lieferung> L;
+    private Set<Lieferung> lieferung;
+
+
 
 
     public Integer getFilialeID() {
@@ -50,50 +52,58 @@ public class Filiale implements Serializable {
         return Name;
     }
 
-    public void setName(String Name) {
-        Name = Name;
+    public void setName(String name) {
+        Name = name;
     }
 
     public String getVerkaufsFlaeche() {
         return VerkaufsFlaeche;
     }
 
-    public void setVerkaufsFlaeche(String VerkaufsFlaeche) {  VerkaufsFlaeche = VerkaufsFlaeche;    }
-
-    public String getOeffnungsZeit() {
-        return OeffnungsZeit;
+    public void setVerkaufsFlaeche(String verkaufsFlaeche) {
+        VerkaufsFlaeche = verkaufsFlaeche;
     }
 
-    public void setOeffnungsZeit(String OeffnungsZeit) {
-        OeffnungsZeit = OeffnungsZeit;
+    public String getOeffnungszeit() {
+        return Oeffnungszeit;
+    }
+
+    public void setOeffnungszeit(String oeffnungszeit) {
+        Oeffnungszeit = oeffnungszeit;
     }
 
     public Double getUmsatz() {
         return Umsatz;
     }
 
-    public void setUmsatz(Double Umsatz) {
-        Umsatz = Umsatz;
+    public void setUmsatz(Double umsatz) {
+        Umsatz = umsatz;
     }
 
-    public Adresse getadresse_AdressID() {
+    public Adresse getAdresse_AdressID() {
         return adresse_AdressID;
     }
 
-    public void setadresse_AdressID(Integer adresse_AdressID) {
-        adresse_AdressID = adresse_AdressID;
+    public void setAdresse_AdressID(Adresse adresse_AdressID) {
+        this.adresse_AdressID = adresse_AdressID;
     }
 
     public Set<Produkt> getP() {
-        return P;
+        return produkt;
     }
 
-    public void setP(Set<Produkt> p) { P = p;}
+    public void setP(Set<Produkt> p) {
+        produkt = p;
+    }
 
     public Set<Lieferung> getL() {
-        return L;
+        return lieferung;
     }
 
-    public void setL(Set<Lieferung> l) { L = l;}
-}
+    public void setL(Set<Lieferung> l) {
+        lieferung = l;
+    }
+
+
+
 }
