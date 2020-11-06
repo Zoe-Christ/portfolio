@@ -1,9 +1,8 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.mapping.Set;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Maschine")
@@ -45,6 +44,13 @@ public class Maschine implements Serializable {
 
     @Column(name = "produktion_lager_LagerID")
     public Integer produktion_lager_LagerID;
+
+    @OneToMany(mappedBy = "Maschine")
+    private Set<Teil> T;
+
+    @ManyToOne (mappedBy = "Maschine")
+    private Set <Produktion> P;
+
 
 
     public Integer getMaschineID() {
@@ -113,7 +119,16 @@ public class Maschine implements Serializable {
 
     public void setGewicht(Double Gewicht) {  Gewicht = Gewicht; }
 
+    public Set<Teil> getT() {
+        return T;
+    }
 
+    public void setT(Set<Teil> t) { T = t;}
 
+    public Set<Produktion> getP() {
+        return P;
+    }
+
+    public void setP(Set<Produktion> p) { P = p;}
 
 }
