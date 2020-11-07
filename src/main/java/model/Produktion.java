@@ -35,7 +35,7 @@ public class Produktion implements Serializable{
     protected Qualitaetsmanagement QM;
 
     @ManyToOne
-    @JoinColumn(name = "qm_abteilung_Kuerzel", nullable = false)
+    @JoinColumn(name = "qm_abteilung_Kuerzel1", nullable = false)
     protected Qualitaetsmanagement qm_kuerzel;
 
     @OneToMany(mappedBy="produktion")

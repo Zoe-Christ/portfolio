@@ -1,10 +1,11 @@
 package model;
 
-import org.hibernate.mapping.Set;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "Maschine")

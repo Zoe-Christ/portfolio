@@ -14,11 +14,11 @@ C:/Users/zoech/IdeaProjects/portfolio/src/main/resources/META_INF/hibernate.cfg.
         <property name="serverTimezone" value="UTC" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="@localhost" uuid="94a3e32d-c13c-4dfd-81be-d383d7b32aba">
+    <data-source source="LOCAL" name="@localhost" uuid="2fcef2eb-94ea-4f4f-9d45-83e4c892c5ec">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/</jdbc-url>
       <driver-properties>
         <property name="serverTimezone" value="UTC" />
       </driver-properties>

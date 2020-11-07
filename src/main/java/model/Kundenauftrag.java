@@ -41,17 +41,13 @@ public class Kundenauftrag implements Serializable {
     @JoinColumn(name = "lieferdienst_ID", nullable = false)
     protected Lieferdienst lieferdienst;
 
-    @ManyToOne
-    @JoinColumn(name = "zahlung_RechnungsNr", nullable = false)
-    protected Zahlung Zahlung;
-
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "Kundenauftrag_has_Produkt",
             joinColumns = {@JoinColumn(name = "kundenauftrag_AuftragID"), @JoinColumn(name = "kundenauftrag_zahlung_RechnungsNr")},
             inverseJoinColumns = {@JoinColumn(name = "produkt_ProduktNr")}
     )
-    Set<Adresse> projects = new HashSet<>();
+    Set<Produkt> produkt = new HashSet<>();
 
     public Kundenauftrag() {
     }

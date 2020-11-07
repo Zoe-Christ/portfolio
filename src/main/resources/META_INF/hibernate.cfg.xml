@@ -16,14 +16,34 @@
         <property name="show_sql">true</property>
 
         <!-- Specifying Session Context -->
-        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+        <property name="hibernate.current_session_context_class">
+            org.hibernate.context.internal.ThreadLocalSessionContext
+        </property>
 
         <!-- Mapping With Model Class Containing Annotations -->
+        <mapping class="model.Abteilung"/>
+        <mapping class="model.Adresse"/>
+        <mapping class="model.Bestellung"/>
+        <mapping class="model.Einkauf"/>
+        <mapping class="model.Fahrzeug"/>
+        <mapping class="model.Filiale"/>
+        <mapping class="model.Kunde"/>
+        <mapping class="model.Kundenauftrag"/>
         <mapping class="model.Lager"/>
-        <mapping class="model.Online_haendler" />
-        <mapping class="model.Adresse" />
-        <mapping class="model.Produktion" />
+        <mapping class="model.Lieferdienst"/>
+        <mapping class="model.Lieferung"/>
+        <mapping class="model.Maschine"/>
+        <mapping class="model.Mitarbeiter"/>
+        <mapping class="model.Online_haendler"/>
+        <mapping class="model.Plz"/>
+        <mapping class="model.Produkt"/>
+        <mapping class="model.Produktion"/>
+        <mapping class="model.Qualitaetsmanagement"/>
+        <mapping class="model.Rolle"/>
+        <mapping class="model.Spediteur"/>
+        <mapping class="model.Teil"/>
+        <mapping class="model.Vertrag"/>
+        <mapping class="model.Zahlung"/>
         <mapping class="model.Zulieferer"/>
-        <mapping class="model.Abteilung" />
     </session-factory>
 </hibernate-configuration>
