@@ -30,6 +30,7 @@
         <mapping class="model.Filiale"/>
         <mapping class="model.Kunde"/>
         <mapping class="model.Kundenauftrag"/>
+        <mapping class="model.Kundenauftrag_has_Produkt"/>
         <mapping class="model.Lager"/>
         <mapping class="model.Lieferdienst"/>
         <mapping class="model.Lieferung"/>

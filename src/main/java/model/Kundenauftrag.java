@@ -41,13 +41,27 @@ public class Kundenauftrag implements Serializable {
     @JoinColumn(name = "lieferdienst_ID", nullable = false)
     protected Lieferdienst lieferdienst;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(
-            name = "Kundenauftrag_has_Produkt",
-            joinColumns = {@JoinColumn(name = "kundenauftrag_AuftragID"), @JoinColumn(name = "kundenauftrag_zahlung_RechnungsNr")},
-            inverseJoinColumns = {@JoinColumn(name = "produkt_ProduktNr")}
-    )
-    Set<Produkt> produkt = new HashSet<>();
+
+    @OneToMany(mappedBy = "Kundenauftrag")
+    private Set<Kundenauftrag_has_Produkt> kundenauftrag_has_produkt = new HashSet<>();
+
+    public void addProdukt(Kundenauftrag_has_Produkt produkt) {
+        this.kundenauftrag_has_produkt.add(produkt);
+    }
+
+    @OneToMany(mappedBy = "primaryKey.kundenauftrag",
+            cascade = CascadeType.ALL)
+    public Set<Kundenauftrag_has_Produkt> getKundenauftrag_has_Produkt() {
+        return kundenauftrag_has_produkt;
+    }
+
+    public void setKundenauftrag_has_Produkt(Set<Kundenauftrag_has_Produkt> kundenauftrag_has_produkt) {
+        this.kundenauftrag_has_produkt = kundenauftrag_has_produkt;
+    }
+
+    public void addKundenauftrag_has_Produkt(Kundenauftrag_has_Produkt kundenauftrag_has_produkt) {
+        this.kundenauftrag_has_produkt.add(kundenauftrag_has_produkt);
+    }
 
     public Kundenauftrag() {
     }
@@ -98,6 +112,38 @@ public class Kundenauftrag implements Serializable {
 
     public void setLieferart(String lieferart) {
         this.lieferart = lieferart;
+    }
+
+    public Kunde getKunde() {
+        return kunde;
+    }
+
+    public void setKunde(Kunde kunde) {
+        this.kunde = kunde;
+    }
+
+    public Online_haendler getOnline_haendler() {
+        return online_haendler;
+    }
+
+    public void setOnline_haendler(Online_haendler online_haendler) {
+        this.online_haendler = online_haendler;
+    }
+
+    public Lieferdienst getLieferdienst() {
+        return lieferdienst;
+    }
+
+    public void setLieferdienst(Lieferdienst lieferdienst) {
+        this.lieferdienst = lieferdienst;
+    }
+
+    public Set<Kundenauftrag_has_Produkt> getKundenauftrag_has_produkt() {
+        return kundenauftrag_has_produkt;
+    }
+
+    public void setKundenauftrag_has_produkt(Set<Kundenauftrag_has_Produkt> kundenauftrag_has_produkt) {
+        this.kundenauftrag_has_produkt = kundenauftrag_has_produkt;
     }
 }
 
