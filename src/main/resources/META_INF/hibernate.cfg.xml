@@ -24,6 +24,7 @@
         <mapping class="model.Abteilung"/>
         <mapping class="model.Adresse"/>
         <mapping class="model.Bestellung"/>
+        <mapping class="model.Bestellung_has_Teil"/>
         <mapping class="model.Einkauf"/>
         <mapping class="model.Fahrzeug"/>
         <mapping class="model.Filiale"/>

@@ -43,8 +43,22 @@ public class Teil implements Serializable {
     @JoinColumn(name = "maschine_MaschineID", nullable = false)
     private Maschine maschine;
 
-    @ManyToMany(mappedBy = "teil")
-    private Set<Bestellung> bestellung = new HashSet<>();
+    @OneToMany(mappedBy = "teil")
+    private Set<Bestellung_has_Teil> bestellung_has_teil = new HashSet<>();
+
+    @OneToMany(mappedBy = "primaryKey.teil",
+            cascade = CascadeType.ALL)
+    public Set<Bestellung_has_Teil> getBestellung_has_Teil() {
+        return bestellung_has_teil;
+    }
+
+    public void setBestellung_has_Teil(Set<Bestellung_has_Teil> bestellung_has_teile) {
+        this.bestellung_has_teil = bestellung_has_teile;
+    }
+
+    public void addBestellung_has_Teil(Bestellung_has_Teil bestellung_has_teil) {
+        this.bestellung_has_teil.add(bestellung_has_teil);
+    }
 
     public Teil() {
     }
@@ -121,11 +135,11 @@ public class Teil implements Serializable {
         this.maschine = maschine;
     }
 
-    public Set<Bestellung> getBestellung() {
-        return bestellung;
+    public Set<Bestellung_has_Teil> getBestellung_has_teil() {
+        return bestellung_has_teil;
     }
 
-    public void setBestellung(Set<Bestellung> bestellung) {
-        this.bestellung = bestellung;
+    public void setBestellung_has_teil(Set<Bestellung_has_Teil> bestellung_has_teil) {
+        this.bestellung_has_teil = bestellung_has_teil;
     }
 }

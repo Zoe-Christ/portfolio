@@ -21,13 +21,27 @@ public class Bestellung implements Serializable {
     @Column(name = "Bearbeitungsstatus")
     private String bearbeitungsstatus;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(
-            name = "Bestellung_has_Teil",
-            joinColumns = {@JoinColumn(name = "bestellung_bestellungid")},
-            inverseJoinColumns = {@JoinColumn(name = "teil_teilid")}
-    )
-    Set<Teil> teil = new HashSet<>();
+    @OneToMany(mappedBy = "bestellung")
+    private Set<Bestellung_has_Teil> bestellung_has_teil = new HashSet<>();
+
+    public void addTeil(Bestellung_has_Teil teil) {
+        this.bestellung_has_teil.add(teil);
+    }
+
+    @OneToMany(mappedBy = "primaryKey.bestellung",
+            cascade = CascadeType.ALL)
+    public Set<Bestellung_has_Teil> getBestellung_has_Teil() {
+        return bestellung_has_teil;
+    }
+
+    public void setBestellung_has_Teil(Set<Bestellung_has_Teil> bestellung_has_teile) {
+        this.bestellung_has_teil = bestellung_has_teile;
+    }
+
+    public void addBestellung_has_Teil(Bestellung_has_Teil bestellung_has_teil) {
+        this.bestellung_has_teil.add(bestellung_has_teil);
+    }
+
 
     @ManyToOne()
     @JoinColumns({
