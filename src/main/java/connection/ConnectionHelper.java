@@ -17,17 +17,17 @@ public class ConnectionHelper {
         throw new IllegalAccessException();
     }
 
-
     public static Connection getConnection( String schema ) {
+        if (LOGIN.equals("")||PASSWORD.equals("")){
+            System.out.println("Datenbank-Login");
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Benutzer: \t");
+            LOGIN = sc.nextLine();
 
-        System.out.println("Datenbank-Login");
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Benutzer: \t");
-        LOGIN = sc.nextLine();
-
-        System.out.print("Passwort: \t");
-        PASSWORD = sc.nextLine();
-        sc.close();
+            System.out.print("Passwort: \t");
+            PASSWORD = sc.nextLine();
+            sc.close();
+        }
 
         Connection con = null;
         try {
