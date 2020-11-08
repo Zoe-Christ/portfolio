@@ -90,6 +90,24 @@ public class Produkt implements Serializable {
     @ManyToMany(mappedBy = "Filiale")
     private Set<Filiale> filiale = new HashSet<>();
 
+    @OneToMany(mappedBy = "Produkt")
+    private Set<Kundenauftrag_has_Produkt> kundenauftrag_has_produkt = new HashSet<>();
+
+    @OneToMany(mappedBy = "primaryKey.produkt",
+            cascade = CascadeType.ALL)
+    public Set<Kundenauftrag_has_Produkt> getKundenauftrag_has_Produkt() {
+        return kundenauftrag_has_produkt;
+    }
+
+    public void setKundenauftrag_has_Produkt(Set<Kundenauftrag_has_Produkt> kundenauftrag_has_produkt) {
+        this.kundenauftrag_has_produkt = kundenauftrag_has_produkt;
+    }
+
+    public void addKundenauftrag_has_Produkt(Kundenauftrag_has_Produkt kundenauftrag_has_produkt) {
+        this.kundenauftrag_has_produkt.add(kundenauftrag_has_produkt);
+    }
+
+
     public Produkt() {
 
     }
@@ -118,4 +136,5 @@ public class Produkt implements Serializable {
     public void setTeilList(Set<Teil> teilList) {
         this.teilList = teilList;
     }
+
 }
