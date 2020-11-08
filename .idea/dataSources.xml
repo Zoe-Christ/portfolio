@@ -23,5 +23,15 @@ C:/Users/zoech/IdeaProjects/portfolio/src/main/resources/META_INF/hibernate.cfg.
         <property name="serverTimezone" value="UTC" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="META_INF:hibernate.cfg.xml/Hibernate" uuid="91c0d534-3726-49f6-afce-4aefce83a044">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+C:/Users/annam/OneDrive/Desktop/DHBW/Semester_4/Datenbanken/Portfolio/portfolio/src/main/resources/META_INF/hibernate.cfg.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/portfolio</jdbc-url>
+    </data-source>
   </component>
 </project>
