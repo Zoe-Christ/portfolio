@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- SQL Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Database Connection Settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/portfolio</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"><!--password eingeben--></property>
+        <property name="show_sql">true</property>
+
+        <!-- Specifying Session Context -->
+        <property name="hibernate.current_session_context_class">
+            org.hibernate.context.internal.ThreadLocalSessionContext
+        </property>
+
+        <!-- Mapping With Model Class Containing Annotations -->
+        <mapping class="model.Abteilung"/>
+        <mapping class="model.Adresse"/>
+        <mapping class="model.Bestellung"/>
+        <mapping class="model.Bestellung_has_Teil"/>
+        <mapping class="model.Einkauf"/>
+        <mapping class="model.Fahrzeug"/>
+        <mapping class="model.Filiale"/>
+        <mapping class="model.Kunde"/>
+        <mapping class="model.Kundenauftrag"/>
+        <mapping class="model.Lager"/>
+        <mapping class="model.Lieferdienst"/>
+        <mapping class="model.Lieferung"/>
+        <mapping class="model.Maschine"/>
+        <mapping class="model.Mitarbeiter"/>
+        <mapping class="model.Online_haendler"/>
+        <mapping class="model.Plz"/>
+        <mapping class="model.Produkt"/>
+        <mapping class="model.Produktion"/>
+        <mapping class="model.Qualitaetsmanagement"/>
+        <mapping class="model.Rolle"/>
+        <mapping class="model.Spediteur"/>
+        <mapping class="model.Teil"/>
+        <mapping class="model.Vertrag"/>
+        <mapping class="model.Zahlung"/>
+        <mapping class="model.Zulieferer"/>
+    </session-factory>
+</hibernate-configuration>
