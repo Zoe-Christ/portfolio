@@ -44,4 +44,20 @@ public class ConnectionHelper {
 
         return con;
     }
+
+    public static String getLOGIN() {
+        return LOGIN;
+    }
+
+    public static void setLOGIN(String LOGIN) {
+        ConnectionHelper.LOGIN = LOGIN;
+    }
+
+    public static String getPASSWORD() {
+        return PASSWORD;
+    }
+
+    public static void setPASSWORD(String PASSWORD) {
+        ConnectionHelper.PASSWORD = PASSWORD;
+    }
 }
