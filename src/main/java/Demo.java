@@ -24,7 +24,7 @@ public class Demo {
         try ( ResultSet rs = stmt.executeQuery( "SELECT Lieferdienst.Name, Lieferdienst.vertrag_Vertrag_ID, Vertrag.Vertrag_ID, Vertrag.Laufzeit from portfolio.Lieferdienst \n" +
                 "inner Join portfolio.Vertrag where Lieferdienst.vertrag_Vertrag_ID = Vertrag.Vertrag_ID" ) ) {
                         while ( rs.next() ) {
-                            System.out.printf(""+rs.getString( 1 ), rs.getInt( 2 ),rs.getInt(3), rs.getString(4) );
+                            System.out.printf(""+rs.getString( 1 )+"\t", rs.getInt( 2 ),rs.getInt(3), rs.getString(4) );
                         }
 
         } catch ( SQLException e ) {
