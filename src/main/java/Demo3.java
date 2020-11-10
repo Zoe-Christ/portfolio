@@ -105,6 +105,53 @@ public class Demo3 {
         }catch(Exception e){
             e.printStackTrace();
         }
+        System.out.println(" ");
+        try (PreparedStatement stmt5 = con.prepareStatement("SELECT LagerID, Mietkosten from portfolio.Lager where Mietkosten < 9000")) {
+
+            // Fetch a first ResultSet
+            try (ResultSet rs5 = stmt5.executeQuery()) {
+                ResultSetMetaData rsmd5 = (ResultSetMetaData) rs5.getMetaData();
+                int columnsNumber = rsmd5.getColumnCount();
+                System.out.println("Zeigt die ID und die Mietkosten aller Lager, deren Mietkosten kleiner als 9000 sind:");
+                while (rs5.next()) {
+                    for (int i = 1; i <= columnsNumber; i++) {
+                        if (i > 1) System.out.print(",  ");
+                        String columnValue = rs5.getString(i);
+                        System.out.print(rsmd5.getColumnName(i)+": "+ columnValue);
+                    }
+                    System.out.println("");
+                }
+            } catch (SQLException e) {
+                System.err.println("Error during Demo!");
+                e.printStackTrace();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        System.out.println(" ");
+        try (PreparedStatement stmt6 = con.prepareStatement("SELECT Name, ProduktNr from Produkt WHERE ProduktNr IN (SELECT Produkt_ProduktNr from kundenauftrag_has_produkt where stueckzahl > 1)")) {
+
+            // Fetch a first ResultSet
+            try (ResultSet rs6 = stmt6.executeQuery()) {
+                ResultSetMetaData rsmd6 = (ResultSetMetaData) rs6.getMetaData();
+                int columnsNumber = rsmd6.getColumnCount();
+                System.out.println("Zeigt alle Produkte in einem Kundenauftrag, die häufiger als einmal bestellt wurden:");
+                while (rs6.next()) {
+                    for (int i = 1; i <= columnsNumber; i++) {
+                        if (i > 1) System.out.print(",  ");
+                        String columnValue = rs6.getString(i);
+                        System.out.print(rsmd6.getColumnName(i)+": "+ columnValue);
+                    }
+                    System.out.println("");
+                }
+            } catch (SQLException e) {
+                System.err.println("Error during Demo!");
+                e.printStackTrace();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
                 //hier Abfragen Einfügen
 
