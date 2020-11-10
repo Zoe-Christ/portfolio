@@ -35,15 +35,16 @@ public class Demo {
 
         /*Sortiert die Filialen nach Umsatz*/
         stmt = con.createStatement();
-        try ( ResultSet rs = stmt.executeQuery( "SELECT * from portfolio.Filiale order by Umsatz DESC" ) ) {
-            while ( rs.next() ) {
-                System.out.printf(""+rs.getInt( 1 ), rs.getString( 2 ),rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getInt(6));
+        try ( ResultSet rt = stmt.executeQuery( "SELECT * from portfolio.Filiale order by Umsatz DESC" ) ) {
+            while ( rt.next() ) {
+                System.out.printf(""+rt.getInt( 1 ), rt.getString( 2 ),rt.getInt(3), rt.getString(4), rt.getInt(5), rt.getInt(6));
             }
 
         } catch ( SQLException e ) {
             System.err.println( "Error during Demo!" );
             e.printStackTrace();
         }
+
         stmt.close();
 
         /*Gruppiert die Zahlungen nach Zahlungsart und Anzahl.*/
