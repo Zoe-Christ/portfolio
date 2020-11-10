@@ -20,12 +20,12 @@ public class Demo3 {
             try (ResultSet rs = stmt.executeQuery()) {
                 ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
                 int columnsNumber = rsmd.getColumnCount();
-                //System.out.println(""+columnsNumber);
+                System.out.println("Inner Join: zeigt Name des Lieferdienst mit dazugehöriger Vertragslaufzeit:");
                 while (rs.next()) {
                     for (int i = 1; i <= columnsNumber; i++) {
                         if (i > 1) System.out.print(",  ");
                         String columnValue = rs.getString(i);
-                        System.out.print(rsmd.getColumnName(i)+": "+ columnValue);
+                        System.out.print(rsmd.getColumnName(i) + ": " + columnValue);
                     }
                     System.out.println("");
                 }
@@ -33,6 +33,9 @@ public class Demo3 {
                 System.err.println("Error during Demo!");
                 e.printStackTrace();
             }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
             System.out.println(" ");
             try (PreparedStatement stmt2 = con.prepareStatement("SELECT * from portfolio.Online_haendler where Name LIKE 'Ama%'")) {
 
@@ -53,6 +56,55 @@ public class Demo3 {
                     System.err.println("Error during Demo!");
                     e.printStackTrace();
                 }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+                System.out.println(" ");
+                try (PreparedStatement stmt3 = con.prepareStatement("SELECT * from portfolio.Filiale order by Umsatz DESC")) {
+
+                    // Fetch a first ResultSet
+                    try (ResultSet rs3 = stmt3.executeQuery()) {
+                        ResultSetMetaData rsmd3 = (ResultSetMetaData) rs3.getMetaData();
+                        int columnsNumber = rsmd3.getColumnCount();
+                        System.out.println("Sortiert die Filialen nach Umsatz:");
+                        while (rs3.next()) {
+                            for (int i = 1; i <= columnsNumber; i++) {
+                                if (i > 1) System.out.print(",  ");
+                                String columnValue = rs3.getString(i);
+                                System.out.print(rsmd3.getColumnName(i)+": "+ columnValue);
+                            }
+                            System.out.println("");
+                        }
+                    } catch (SQLException e) {
+                        System.err.println("Error during Demo!");
+                        e.printStackTrace();
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+        System.out.println(" ");
+        try (PreparedStatement stmt4 = con.prepareStatement("SELECT COUNT(RechnungsNr), Zahlungsart from portfolio.Zahlung Group by Zahlungsart")) {
+
+            // Fetch a first ResultSet
+            try (ResultSet rs4 = stmt4.executeQuery()) {
+                ResultSetMetaData rsmd4 = (ResultSetMetaData) rs4.getMetaData();
+                int columnsNumber = rsmd4.getColumnCount();
+                System.out.println("Gruppiert die Zahlungen nach Zahlungsart und Anzahl:");
+                while (rs4.next()) {
+                    for (int i = 1; i <= columnsNumber; i++) {
+                        if (i > 1) System.out.print(",  ");
+                        String columnValue = rs4.getString(i);
+                        System.out.print(rsmd4.getColumnName(i)+": "+ columnValue);
+                    }
+                    System.out.println("");
+                }
+            } catch (SQLException e) {
+                System.err.println("Error during Demo!");
+                e.printStackTrace();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
                 //hier Abfragen Einfügen
 
@@ -68,5 +120,5 @@ public class Demo3 {
 
         }
 
-    }
-}
+
+
