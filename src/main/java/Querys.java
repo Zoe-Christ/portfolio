@@ -6,17 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Demo3 {
+public class Querys {
     public static void main(String[] args) throws IllegalAccessException, SQLException {
-        //ConnectionHelper c = new ConnectionHelper();
+
         Connection con = ConnectionHelper.getConnection("portfolio");
 
 
-        // Execute the statement
+
         try (PreparedStatement stmt = con.prepareStatement("SELECT Lieferdienst.Name, Lieferdienst.vertrag_Vertrag_ID, Vertrag.Vertrag_ID, Vertrag.Laufzeit from portfolio.Lieferdienst \n" +
                 "inner Join portfolio.Vertrag where Lieferdienst.vertrag_Vertrag_ID = Vertrag.Vertrag_ID")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs = stmt.executeQuery()) {
                 ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
                 int columnsNumber = rsmd.getColumnCount();
@@ -39,7 +39,7 @@ public class Demo3 {
             System.out.println(" ");
             try (PreparedStatement stmt2 = con.prepareStatement("SELECT * from portfolio.Online_haendler where Name LIKE 'Ama%'")) {
 
-                // Fetch a first ResultSet
+
                 try (ResultSet rs2 = stmt2.executeQuery()) {
                     ResultSetMetaData rsmd2 = (ResultSetMetaData) rs2.getMetaData();
                     int columnsNumber = rsmd2.getColumnCount();
@@ -62,7 +62,7 @@ public class Demo3 {
                 System.out.println(" ");
                 try (PreparedStatement stmt3 = con.prepareStatement("SELECT * from portfolio.Filiale order by Umsatz DESC")) {
 
-                    // Fetch a first ResultSet
+
                     try (ResultSet rs3 = stmt3.executeQuery()) {
                         ResultSetMetaData rsmd3 = (ResultSetMetaData) rs3.getMetaData();
                         int columnsNumber = rsmd3.getColumnCount();
@@ -85,7 +85,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt4 = con.prepareStatement("SELECT COUNT(RechnungsNr), Zahlungsart from portfolio.Zahlung Group by Zahlungsart")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs4 = stmt4.executeQuery()) {
                 ResultSetMetaData rsmd4 = (ResultSetMetaData) rs4.getMetaData();
                 int columnsNumber = rsmd4.getColumnCount();
@@ -108,7 +108,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt5 = con.prepareStatement("SELECT LagerID, Mietkosten from portfolio.Lager where Mietkosten < 9000")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs5 = stmt5.executeQuery()) {
                 ResultSetMetaData rsmd5 = (ResultSetMetaData) rs5.getMetaData();
                 int columnsNumber = rsmd5.getColumnCount();
@@ -132,7 +132,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt6 = con.prepareStatement("SELECT Name, ProduktNr from Produkt WHERE ProduktNr IN (SELECT Produkt_ProduktNr from kundenauftrag_has_produkt where stueckzahl > 1)")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs6 = stmt6.executeQuery()) {
                 ResultSetMetaData rsmd6 = (ResultSetMetaData) rs6.getMetaData();
                 int columnsNumber = rsmd6.getColumnCount();
@@ -155,7 +155,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt7 = con.prepareStatement("SELECT COUNT(ProduktNr) from Produkt WHERE Bestand BETWEEN 0 AND 50")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs7 = stmt7.executeQuery()) {
                 ResultSetMetaData rsmd7 = (ResultSetMetaData) rs7.getMetaData();
                 int columnsNumber = rsmd7.getColumnCount();
@@ -179,7 +179,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt8 = con.prepareStatement("SELECT Warenwert FROM Bestellung WHERE Bearbeitungsstatus = 'zugestellt' OR Warenwert BETWEEN 400 AND 1000 ORDER BY Warenwert DESC")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs8 = stmt8.executeQuery()) {
                 ResultSetMetaData rsmd8 = (ResultSetMetaData) rs8.getMetaData();
                 int columnsNumber = rsmd8.getColumnCount();
@@ -204,7 +204,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt11 = con.prepareStatement("SELECT SUM(AnzahlMA) FROM Abteilung")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs11 = stmt11.executeQuery()) {
                 ResultSetMetaData rsmd11 = (ResultSetMetaData) rs11.getMetaData();
                 int columnsNumber = rsmd11.getColumnCount();
@@ -227,7 +227,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt12 = con.prepareStatement("SELECT SUM(stueckzahl) FROM kundenauftrag_has_produkt WHERE (kundenauftrag_AuftragID > 2)")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs12 = stmt12.executeQuery()) {
                 ResultSetMetaData rsmd12 = (ResultSetMetaData) rs12.getMetaData();
                 int columnsNumber = rsmd12.getColumnCount();
@@ -250,7 +250,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt13 = con.prepareStatement("SELECT einkauf.Budget, einkauf.Saison FROM portfolio.einkauf HAVING (AVG(einkauf.Budget) > einkauf.Budget)")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs13 = stmt13.executeQuery()) {
                 ResultSetMetaData rsmd13 = (ResultSetMetaData) rs13.getMetaData();
                 int columnsNumber = rsmd13.getColumnCount();
@@ -273,7 +273,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt14 = con.prepareStatement("SELECT SUM(Gehalt) FROM Mitarbeiter")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs14 = stmt14.executeQuery()) {
                 ResultSetMetaData rsmd14 = (ResultSetMetaData) rs14.getMetaData();
                 int columnsNumber = rsmd14.getColumnCount();
@@ -296,7 +296,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt15 = con.prepareStatement("SELECT COUNT(MitarbeiterID) FROM Mitarbeiter")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs15 = stmt15.executeQuery()) {
                 ResultSetMetaData rsmd15 = (ResultSetMetaData) rs15.getMetaData();
                 int columnsNumber = rsmd15.getColumnCount();
@@ -319,7 +319,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt16 = con.prepareStatement("SELECT FilialeID, Name, Umsatz FROM Filiale where (Umsatz>40000)")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs16 = stmt16.executeQuery()) {
                 ResultSetMetaData rsmd16 = (ResultSetMetaData) rs16.getMetaData();
                 int columnsNumber = rsmd16.getColumnCount();
@@ -342,7 +342,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt17 = con.prepareStatement("SELECT SUM(Umsatz) FROM Filiale")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs17 = stmt17.executeQuery()) {
                 ResultSetMetaData rsmd17 = (ResultSetMetaData) rs17.getMetaData();
                 int columnsNumber = rsmd17.getColumnCount();
@@ -365,7 +365,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt18 = con.prepareStatement("SELECT ID, Name, Lieferzeit FROM Lieferdienst HAVING (Lieferzeit < AVG(Lieferzeit))")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs18 = stmt18.executeQuery()) {
                 ResultSetMetaData rsmd18 = (ResultSetMetaData) rs18.getMetaData();
                 int columnsNumber = rsmd18.getColumnCount();
@@ -388,7 +388,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt19 = con.prepareStatement("Select * from Spediteur where Liefertreue < 92")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs19 = stmt19.executeQuery()) {
                 ResultSetMetaData rsmd19 = (ResultSetMetaData) rs19.getMetaData();
                 int columnsNumber = rsmd19.getColumnCount();
@@ -412,7 +412,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt20 = con.prepareStatement("SELECT SUM(Max_Produktion) FROM Maschine")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs20 = stmt20.executeQuery()) {
                 ResultSetMetaData rsmd20 = (ResultSetMetaData) rs20.getMetaData();
                 int columnsNumber = rsmd20.getColumnCount();
@@ -435,7 +435,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt21 = con.prepareStatement("SELECT Name, Aufgabe FROM Maschine WHERE Einstellung = 'fein'")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs21 = stmt21.executeQuery()) {
                 ResultSetMetaData rsmd21 = (ResultSetMetaData) rs21.getMetaData();
                 int columnsNumber = rsmd21.getColumnCount();
@@ -458,7 +458,7 @@ public class Demo3 {
         System.out.println(" ");
         try (PreparedStatement stmt22 = con.prepareStatement("SELECT Name FROM maschine WHERE Wartung BETWEEN '2017-01-01' AND '2021-01-01'")) {
 
-            // Fetch a first ResultSet
+
             try (ResultSet rs22 = stmt22.executeQuery()) {
                 ResultSetMetaData rsmd22 = (ResultSetMetaData) rs22.getMetaData();
                 int columnsNumber = rsmd22.getColumnCount();
