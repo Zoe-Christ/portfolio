@@ -152,8 +152,8 @@ public class Demo3 {
         }catch(Exception e){
             e.printStackTrace();
         }
-
-        try (PreparedStatement stmt7 = con.prepareStatement("SELECT COUNT(ProduktNr) Produkt WHERE Bestand BETWEEN 0 AND 50")) {
+        System.out.println(" ");
+        try (PreparedStatement stmt7 = con.prepareStatement("SELECT COUNT(ProduktNr) from Produkt WHERE Bestand BETWEEN 0 AND 50")) {
 
             // Fetch a first ResultSet
             try (ResultSet rs7 = stmt7.executeQuery()) {
@@ -176,7 +176,7 @@ public class Demo3 {
                 e.printStackTrace();
         }
 
-
+        System.out.println(" ");
         try (PreparedStatement stmt8 = con.prepareStatement("SELECT Warenwert FROM Bestellung WHERE Bearbeitungsstatus = 'zugestellt' OR Warenwert BETWEEN 400 AND 1000 ORDER BY Warenwert DESC")) {
 
             // Fetch a first ResultSet
@@ -201,53 +201,8 @@ public class Demo3 {
         }
 
 
-        try (PreparedStatement stmt9 = con.prepareStatement("SELECT (Pruefwerkzeug, abteilung_Kuerzel, Norm) FROM Abteilung ORDER BY AnzahlMA DESC")) {
-
-            // Fetch a first ResultSet
-            try (ResultSet rs9 = stmt9.executeQuery()) {
-                ResultSetMetaData rsmd9 = (ResultSetMetaData) rs9.getMetaData();
-                int columnsNumber = rsmd9.getColumnCount();
-                System.out.println("Zeigt Prüfwerkzeug, Abteilungskürzel und Norm der täglichen Kontrolle an:");
-                while (rs9.next()) {
-                    for (int i = 1; i <= columnsNumber; i++) {
-                        if (i > 1) System.out.print(",  ");
-                        String columnValue = rs9.getString(i);
-                        System.out.print(rsmd9.getColumnName(i)+": "+ columnValue);
-                    }
-                    System.out.println("");
-                }
-            } catch (SQLException e) {
-                System.err.println("Error during Demo!");
-                e.printStackTrace();
-            }
-        }   catch(Exception e){
-            e.printStackTrace();
-        }
-
-        try (PreparedStatement stmt10 = con.prepareStatement("SELECT (p.ProduktNr, p.Produktionsdatum) FROM Produkt p INNER JOIN Maschine m WHERE m.maschineID = '1' ")) {
-
-            // Fetch a first ResultSet
-            try (ResultSet rs10 = stmt10.executeQuery()) {
-                ResultSetMetaData rsmd10 = (ResultSetMetaData) rs10.getMetaData();
-                int columnsNumber = rsmd10.getColumnCount();
-                System.out.println("Zeigt Produktnummer und Produktionsdatum an, die von der Maschine 1 hergestellt werden:");
-                while (rs10.next()) {
-                    for (int i = 1; i <= columnsNumber; i++) {
-                        if (i > 1) System.out.print(",  ");
-                        String columnValue = rs10.getString(i);
-                        System.out.print(rsmd10.getColumnName(i)+": "+ columnValue);
-                    }
-                    System.out.println("");
-                }
-            } catch (SQLException e) {
-                System.err.println("Error during Demo!");
-                e.printStackTrace();
-            }
-        }   catch(Exception e){
-            e.printStackTrace();
-        }
-
-        try (PreparedStatement stmt11 = con.prepareStatement("SELECT SUM(AnzahlMA) FROM ABTEILUNG")) {
+        System.out.println(" ");
+        try (PreparedStatement stmt11 = con.prepareStatement("SELECT SUM(AnzahlMA) FROM Abteilung")) {
 
             // Fetch a first ResultSet
             try (ResultSet rs11 = stmt11.executeQuery()) {
@@ -269,14 +224,14 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
-
-        try (PreparedStatement stmt12 = con.prepareStatement("SELECT SUM(Kundenauftrag.Warenwert) FROM Kundenauftrag WHERE (Datum='2021-10-16' OR Datum = '2021-10-17")) {
+        System.out.println(" ");
+        try (PreparedStatement stmt12 = con.prepareStatement("SELECT SUM(stueckzahl) FROM kundenauftrag_has_produkt WHERE (kundenauftrag_AuftragID > 2)")) {
 
             // Fetch a first ResultSet
             try (ResultSet rs12 = stmt12.executeQuery()) {
                 ResultSetMetaData rsmd12 = (ResultSetMetaData) rs12.getMetaData();
                 int columnsNumber = rsmd12.getColumnCount();
-                System.out.println("Es wird die Summe der Warenwerte an bestimmten Zeitpunkten ermittelt (Punktelle Abfrage an besonderen Tagen, welche den Umsatz stark fördern (Black-Friday, usw.);");
+                System.out.println("Es wird die Summe der Stückzahl mit Auftrags ID > 2 ermittelt");
                 while (rs12.next()) {
                     for (int i = 1; i <= columnsNumber; i++) {
                         if (i > 1) System.out.print(",  ");
@@ -292,7 +247,7 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
-
+        System.out.println(" ");
         try (PreparedStatement stmt13 = con.prepareStatement("SELECT einkauf.Budget, einkauf.Saison FROM portfolio.einkauf HAVING (AVG(einkauf.Budget) > einkauf.Budget)")) {
 
             // Fetch a first ResultSet
@@ -315,7 +270,7 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
-
+        System.out.println(" ");
         try (PreparedStatement stmt14 = con.prepareStatement("SELECT SUM(Gehalt) FROM Mitarbeiter")) {
 
             // Fetch a first ResultSet
@@ -338,12 +293,12 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
-
+        System.out.println(" ");
         try (PreparedStatement stmt15 = con.prepareStatement("SELECT COUNT(MitarbeiterID) FROM Mitarbeiter")) {
 
             // Fetch a first ResultSet
             try (ResultSet rs15 = stmt15.executeQuery()) {
-                ResultSetMetaData rsmd15 = (ResultSetMetaData) rs7.getMetaData();
+                ResultSetMetaData rsmd15 = (ResultSetMetaData) rs15.getMetaData();
                 int columnsNumber = rsmd15.getColumnCount();
                 System.out.println("Es wird die gesamte Anzahl der Mitabeiter angezeigt, welche im Unternehmen arbeiten (Mitarbeiteranzahl):");
                 while (rs15.next()) {
@@ -361,14 +316,14 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
-
-        try (PreparedStatement stmt16 = con.prepareStatement("SELECT FilialeID, filiale.Name FROM filiale HAVING (AVG(filiale.Umsatz)>filiale.Umsatz)")) {
+        System.out.println(" ");
+        try (PreparedStatement stmt16 = con.prepareStatement("SELECT FilialeID, Name, Umsatz FROM Filiale where (Umsatz>40000)")) {
 
             // Fetch a first ResultSet
             try (ResultSet rs16 = stmt16.executeQuery()) {
                 ResultSetMetaData rsmd16 = (ResultSetMetaData) rs16.getMetaData();
                 int columnsNumber = rsmd16.getColumnCount();
-                System.out.println("Es werden die Filialen angezeigt, welche einen geringeren Umsatz verzeichnen als der durchschnittliche Umsatz aller Filialen. (Performance-Übersicht):");
+                System.out.println("Es werden die Filialen angezeigt, welche einen höheren Umsatz verzeichnen als 40000:");
                 while (rs16.next()) {
                     for (int i = 1; i <= columnsNumber; i++) {
                         if (i > 1) System.out.print(",  ");
@@ -384,7 +339,7 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
-
+        System.out.println(" ");
         try (PreparedStatement stmt17 = con.prepareStatement("SELECT SUM(Umsatz) FROM Filiale")) {
 
             // Fetch a first ResultSet
@@ -407,8 +362,8 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
-
-        try (PreparedStatement stmt18 = con.prepareStatement("SELECT ID, Name FROM Lieferdienst WHERE Lieferzeit < AVG(Lieferzeit)")) {
+        System.out.println(" ");
+        try (PreparedStatement stmt18 = con.prepareStatement("SELECT ID, Name, Lieferzeit FROM Lieferdienst HAVING (Lieferzeit < AVG(Lieferzeit))")) {
 
             // Fetch a first ResultSet
             try (ResultSet rs18 = stmt18.executeQuery()) {
@@ -430,15 +385,15 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
-
-        try (PreparedStatement stmt19 = con.prepareStatement("SELECT ID, Name FROM Lieferdienst WHERE Lieferzeit < AVG(Lieferzeit)")) {
+        System.out.println(" ");
+        try (PreparedStatement stmt19 = con.prepareStatement("Select * from Spediteur where Liefertreue < 92")) {
 
             // Fetch a first ResultSet
             try (ResultSet rs19 = stmt19.executeQuery()) {
                 ResultSetMetaData rsmd19 = (ResultSetMetaData) rs19.getMetaData();
                 int columnsNumber = rsmd19.getColumnCount();
                 System.out.println("Es werden alle Spediteure angezeigt die eine Liefertreue unter 92 Prozent haben:");
-                while (rs7.next()) {
+                while (rs19.next()) {
                     for (int i = 1; i <= columnsNumber; i++) {
                         if (i > 1) System.out.print(",  ");
                         String columnValue = rs19.getString(i);
@@ -453,6 +408,8 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
+
+        System.out.println(" ");
         try (PreparedStatement stmt20 = con.prepareStatement("SELECT SUM(Max_Produktion) FROM Maschine")) {
 
             // Fetch a first ResultSet
@@ -475,7 +432,7 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
-
+        System.out.println(" ");
         try (PreparedStatement stmt21 = con.prepareStatement("SELECT Name, Aufgabe FROM Maschine WHERE Einstellung = 'fein'")) {
 
             // Fetch a first ResultSet
@@ -498,7 +455,7 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
-
+        System.out.println(" ");
         try (PreparedStatement stmt22 = con.prepareStatement("SELECT Name FROM maschine WHERE Wartung BETWEEN '2017-01-01' AND '2021-01-01'")) {
 
             // Fetch a first ResultSet
@@ -521,19 +478,9 @@ public class Demo3 {
         }   catch(Exception e){
             e.printStackTrace();
         }
+//Close Connection
+con.close();
 
-
-
-
-                //hier Abfragen Einfügen
-
-
-
-                //das erst am Ende:
-                con.close();
-
-                // Without closing the statement, execute it again to fetch another ResultSet
-                // try (ResultSet rs2 = stmt.executeQuery()) { ... }
             }
 
 
