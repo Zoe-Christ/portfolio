@@ -6,5 +6,6 @@ class InsertTest {
 
     @Test
     void insert() {
+
     }
 }

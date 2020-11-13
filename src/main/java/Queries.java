@@ -48,7 +48,8 @@ public class Queries {
 
     }
 
-    public void select(PreparedStatement stmt){
+    public ResultSetMetaData select(PreparedStatement stmt){
+        ResultSetMetaData rrsmd = null;
         try (ResultSet rs = stmt.executeQuery()) {
             rsmd = (ResultSetMetaData) rs.getMetaData();
             int columnNr = rsmd.getColumnCount();
@@ -60,12 +61,15 @@ public class Queries {
                 }
                 System.out.println("");
             }
+            rrsmd = rsmd;
             rsmd = null;
         } catch (SQLException e) {
             System.err.println("Exception aufgetreten, SQL Statement prüfen!");
             e.printStackTrace();
         }
         System.out.println("");
+
+        return rrsmd;
 
     }
 
