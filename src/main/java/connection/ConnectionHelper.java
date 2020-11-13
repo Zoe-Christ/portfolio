@@ -1,5 +1,7 @@
 package connection;
 
+import org.apache.logging.log4j.util.SystemPropertiesPropertySource;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,8 +9,8 @@ import java.util.Scanner;
 
 public class ConnectionHelper {
 
-    private static String LOGIN = "root";
-    private static String PASSWORD = "Tulpenwiese";
+    private static String LOGIN = "";
+    private static String PASSWORD = "";
     private static String URL = "jdbc:mysql://localhost:3306/";
     private static String DEFAULTSCHEMA = "portfolio";
     private static String TIMEZONEPROPERTY = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -26,6 +28,7 @@ public class ConnectionHelper {
 
             System.out.print("Passwort: \t");
             PASSWORD = sc.nextLine();
+            System.out.println("");
             sc.close();
         }
 
