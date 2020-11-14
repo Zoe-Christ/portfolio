@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle Kundenauftrag
+ */
 @Entity
 @Table(name = "Kundenauftrag")
 public class Kundenauftrag implements Serializable {

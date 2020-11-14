@@ -5,6 +5,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle Produkt
+ */
 @Entity
 @Table(name = "Produkt")
 public class Produkt implements Serializable {

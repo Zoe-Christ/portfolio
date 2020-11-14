@@ -11,13 +11,19 @@ public class Queries {
     private static Connection con = null;
     private ResultSetMetaData rsmd = null;
 
+    /**TODO:
+     * Main-Methode führt die Select-Statements aus
+     * @param args
+     * @throws IllegalAccessException
+     * @throws SQLException
+     */
     public static void main(String[] args) throws IllegalAccessException, SQLException {
         Queries qs = new Queries();
 
         con = ConnectionHelper.getConnection("portfolio");
 
         if( con!= null ){
-
+            //Ausführen der Selects
             qs.getLiefervertraege(con.prepareStatement("SELECT Lieferdienst.Name, Lieferdienst.vertrag_Vertrag_ID, Vertrag.Vertrag_ID, Vertrag.Laufzeit from portfolio.Lieferdienst \n" +
                                                                                "inner Join portfolio.Vertrag where Lieferdienst.vertrag_Vertrag_ID = Vertrag.Vertrag_ID"));
             qs.selectAllOnline_Haendler(con.prepareStatement("SELECT * from portfolio.Online_haendler where Name LIKE 'Ama%'"));
@@ -48,6 +54,12 @@ public class Queries {
 
     }
 
+    /**TODO:
+     * Führt Select auf der Datenbank aus und gibt diese in der Konsole aus,
+     * gibt zu Testzwecken ein ResultSetMetaData zurück
+     * @param stmt
+     * @return
+     */
     public ResultSetMetaData select(PreparedStatement stmt){
         ResultSetMetaData rrsmd = null;
         try (ResultSet rs = stmt.executeQuery()) {
@@ -73,6 +85,10 @@ public class Queries {
 
     }
 
+    /**TODO:
+     * Gibt aus, was der Select macht und ruft Select-Methode auf, der es das SQL-Statement übergibt
+     * @param stmt
+     */
     public void getLiefervertraege(PreparedStatement stmt){
         System.out.println("Inner Join: zeigt Name des Lieferdienst mit dazugehöriger Vertragslaufzeit:");
         select(stmt);

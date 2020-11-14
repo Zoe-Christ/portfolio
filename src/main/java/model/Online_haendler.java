@@ -6,6 +6,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle Online_haendler
+ */
 @Entity
 @Table(name = "Online_haendler")
 public class Online_haendler implements Serializable {

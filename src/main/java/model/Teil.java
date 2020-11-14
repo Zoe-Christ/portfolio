@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**TODO:
+ * Entity-Klasse für die Tabelle Teil
+ */
 @Entity
 @Table(name = "Teil")
 public class Teil implements Serializable {

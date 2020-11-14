@@ -5,7 +5,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-
+/**TODO:
+ * Entity-Klasse für die Tabelle Produktion
+ */
 @Entity
 @Table(name = "Produktion")
 public class Produktion implements Serializable{

@@ -5,6 +5,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle Zahlung
+ */
 @Entity
 @Table(name = "Zahlung")
 public class Zahlung implements Serializable {

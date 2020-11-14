@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle Vertrag
+ */
 @Entity
 @Table(name = "vertrag")
 public class Vertrag implements Serializable {

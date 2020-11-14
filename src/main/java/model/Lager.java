@@ -5,7 +5,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
-
+/**TODO:
+ * Entity-Klasse für die Tabelle Lager
+ */
 @Entity
 @Table(name = "Lager")
 public class Lager implements Serializable {

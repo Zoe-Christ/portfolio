@@ -5,6 +5,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle Zulieferer
+ */
 @Entity
 @Table(name = "zulieferer")
 public class Zulieferer implements Serializable {

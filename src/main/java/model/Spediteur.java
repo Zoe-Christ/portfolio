@@ -3,6 +3,9 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle Spediteur
+ */
 @Entity
 @Table(name = "Spediteur")
 public class Spediteur implements Serializable {

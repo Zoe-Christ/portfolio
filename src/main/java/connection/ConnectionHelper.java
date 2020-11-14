@@ -7,6 +7,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+/**TODO:
+ * Sorgt für Aufbau der Verbindung zur Datenbank,
+ * fragt Login und Passwort ab
+ */
 public class ConnectionHelper {
 
     private static String LOGIN = "";

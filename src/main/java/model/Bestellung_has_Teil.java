@@ -2,6 +2,9 @@ package model;
 
 import javax.persistence.*;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle Bestellung_has_Teil
+ */
 @Entity
 @Table(name = "Bestellung_has_Teil")
 @AssociationOverrides({

@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Set;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle Maschine
+ */
 @Entity
 @Table(name = "Maschine")
 public class Maschine implements Serializable {

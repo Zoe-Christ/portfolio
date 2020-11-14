@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle rolle
+ */
 @Entity
 @Table(name = "rolle")
 public class Rolle {

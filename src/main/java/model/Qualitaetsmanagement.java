@@ -5,7 +5,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
-
+/**TODO:
+ * Entity-Klasse für die Tabelle qm
+ */
 @Entity
 @Table(name = "qm")
 public class Qualitaetsmanagement implements Serializable {

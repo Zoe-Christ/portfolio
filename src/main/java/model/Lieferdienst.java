@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Set;
 
-
+/**TODO:
+ * Entity-Klasse für die Tabelle Lieferdienst
+ */
 @Entity
 @Table(name = "Lieferdienst")
 public class Lieferdienst implements Serializable {

@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+/**TODO:
+ * Entity-Klasse für die Tabelle Fahrzeug
+ */
 @Entity
 @Table(name = "Fahrzeug")
 public class Fahrzeug implements Serializable {

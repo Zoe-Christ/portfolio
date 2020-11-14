@@ -8,7 +8,11 @@ public class Insert {
     private static Connection con = null;
     private static Statement stmt = null;
 
-
+    /**TODO:
+     * main-Methode führt Insert auf der Datenbank aus
+     * @param args
+     * @throws SQLException
+     */
     public static void main(String[] args) throws SQLException {
 
         Insert element = new Insert();
@@ -28,6 +32,10 @@ public class Insert {
 
     }
 
+    /**TODO:
+     * Führt den übergebenen SQL-Insert-Befehl aus und gibt Rückmeldung über erfolgten Insert
+     * @param sql
+     */
     public void insert(String sql){
 
         try {
@@ -40,6 +48,12 @@ public class Insert {
         }
     }
 
+    /**TODO:
+     * Überladene Methode Insert
+     * bekommt zu Testzwecken ein Statement übergeben
+     * @param sql
+     * @param stmt
+     */
     public void insert(String sql, Statement stmt){
 
         try {
