@@ -17,39 +17,16 @@ public class ConnectionHelperTest {
     @Test
     @DisplayName("Test successfully establishing connection to DB")
     void testConnectionToDB() {
-
+        //Vorbedingung
         // PLEASE INSERT YOUR LOGIN DATA HERE FIRST
-       ConnectionHelper.setLOGIN("root");
-       ConnectionHelper.setPASSWORD("root");
+        ConnectionHelper.setLOGIN("root");
+        ConnectionHelper.setPASSWORD("root");
 
-
-
-       //FUNKTIONIERT NICHT
-
-       /*if (ConnectionHelper.getLOGIN().equals("")||ConnectionHelper.getPASSWORD().equals("")){
-            System.out.println("Datenbank-Login");
-            BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
-           // Scanner sc = new Scanner(System.in);
-            System.out.print("Benutzer: \t");
-            try {
-                ConnectionHelper.setLOGIN(buff.readLine());
-            } catch (IOException e){
-                e.printStackTrace();
-            }
-
-            System.out.print("Passwort: \t");
-           try {
-               ConnectionHelper.setPASSWORD(buff.readLine());
-           } catch (IOException e){
-               e.printStackTrace();
-           }
-        }*/
-
+        //Assertion
         Assertions.assertNotNull(ConnectionHelper.getConnection("portfolio"));
 
         /*EntityManager em = (EntityManager) ConnectionHelper.getConnection("portfolio");
         Assertions.assertNotNull( em );
         em.close();*/
-
     }
 }

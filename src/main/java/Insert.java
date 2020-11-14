@@ -17,7 +17,7 @@ public class Insert {
         stmt = con.createStatement();
 
         if(con != null){
-            element.insert("INSERT INTO Fahrzeug(Bezeichnung) VALUES ('Porsche')");
+            element.insert("INSERT INTO Fahrzeug(Bezeichnung) VALUES ('LKW')");
             element.insert("INSERT INTO Filiale (Name, VerkaufsFlaeche, Oeffnungszeit, Umsatz, adresse_AdressID) VALUES('G', 20000, '10 bis 20', 80000, 1)");
             element.insert("INSERT INTO Einkauf (Budget, Saison, Richtlinie, Bestandswert, abteilung_Kuerzel) VALUES(21000, 'Fruehling', 'exklusive Verkäufe', 200, 20)");
 
@@ -39,4 +39,17 @@ public class Insert {
             e.printStackTrace();
         }
     }
+
+    public void insert(String sql, Statement stmt){
+
+        try {
+
+            stmt.executeUpdate(sql);
+            System.out.println("Inserted record into the tables");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
